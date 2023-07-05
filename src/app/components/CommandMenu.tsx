@@ -1,5 +1,6 @@
 // UI
 import { Command } from 'cmdk';
+import CommandItem from './CommandItem';
 
 // Hooks
 import { useRef } from 'react';
@@ -41,53 +42,28 @@ const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) => {
                 className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg sm:w-96"
                 ref={ref}
             >
-                <div className="absolute w-full p-2">
+                <div className="absolute w-full p-2" style={{}}>
                     <div className="h-10 rounded-lg bg-stone-300" />
                 </div>
+
                 <Command.List className="relative z-10 p-2">
-                    <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg">
-                        <BackpackIcon className="ml-4 h-4 w-4" /> <span className="ml-4">Work</span>
-                    </Command.Item>
-                    <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg">
-                        <StackIcon className="ml-4 h-4 w-4" />{' '}
-                        <span className="ml-4">Stack & Tools</span>
-                    </Command.Item>
-                    <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg">
-                        <RocketIcon className="ml-4 h-4 w-4" />{' '}
-                        <span className="ml-4">Personal projects</span>
-                    </Command.Item>
+                    <CommandItem icon={BackpackIcon} title="Work" />
+                    <CommandItem icon={StackIcon} title="Stack & Tools" />
+                    <CommandItem icon={RocketIcon} title="Personal projects" />
 
                     <Command.Group heading="Social" className="ml-2 mt-2 text-xs text-stone-500">
                         <div className="mt-2">
-                            <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg text-sm text-stone-800">
-                                <GitHubLogoIcon className="ml-2 h-4 w-4" />{' '}
-                                <span className="ml-4">Github</span>
-                            </Command.Item>
-                            <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg text-sm text-stone-800">
-                                <TwitterLogoIcon className="ml-2 h-4 w-4" />{' '}
-                                <span className="ml-4">Twitter</span>
-                            </Command.Item>
-                            <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg text-sm text-stone-800">
-                                <LinkedInLogoIcon className="ml-2 h-4 w-4" />{' '}
-                                <span className="ml-4">LinkedIn</span>
-                            </Command.Item>
+                            <CommandItem icon={GitHubLogoIcon} title="Github" isInGroup />
+                            <CommandItem icon={TwitterLogoIcon} title="Twitter" isInGroup />
+                            <CommandItem icon={LinkedInLogoIcon} title="LinkedIn" isInGroup />
                         </div>
                     </Command.Group>
 
                     <Command.Group heading="Theme" className="ml-2 mt-2 text-xs text-stone-500">
                         <div className="mt-2">
-                            <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg text-sm text-stone-800">
-                                <SunIcon className="ml-2 h-4 w-4" />{' '}
-                                <span className="ml-4">Light theme</span>
-                            </Command.Item>
-                            <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg text-sm text-stone-800">
-                                <MoonIcon className="ml-2 h-4 w-4" />{' '}
-                                <span className="ml-4">Dark theme</span>
-                            </Command.Item>
-                            <Command.Item className="flex h-10 cursor-pointer items-center rounded-lg text-sm text-stone-800">
-                                <DesktopIcon className="ml-2 h-4 w-4" />{' '}
-                                <span className="ml-4">System theme</span>
-                            </Command.Item>
+                            <CommandItem icon={SunIcon} title="Light theme" isInGroup />
+                            <CommandItem icon={MoonIcon} title="Dark theme" isInGroup />
+                            <CommandItem icon={DesktopIcon} title="System theme" isInGroup />
                         </div>
                     </Command.Group>
                 </Command.List>
