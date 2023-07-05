@@ -2,15 +2,17 @@
 
 // UI
 import * as Tooltip from '@radix-ui/react-tooltip';
-import CommandMenu from './CommandMenu';
+import { CommandMenu } from './CommandMenu';
+
+// Hooks
+import { useEffect, useState } from 'react';
 
 // Types
 import type { FC } from 'react';
-import { useEffect, useState } from 'react';
 
 interface Props {}
 
-const CommandButton: FC<Props> = ({}) => {
+export const CommandButton: FC<Props> = ({}) => {
     const [open, setOpen] = useState(false);
 
     // Toggle the menu when ⌘K is pressed
@@ -41,7 +43,7 @@ const CommandButton: FC<Props> = ({}) => {
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                         <Tooltip.Content
-                            className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade flex select-none items-center space-x-1 rounded-md bg-stone-800 p-1 text-xs leading-none text-stone-50 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade"
+                            className="data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade flex select-none items-center space-x-1 rounded-md bg-stone-800 p-1 text-xs leading-none text-stone-50 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
                             sideOffset={5}
                             side="left"
                         >
@@ -60,5 +62,3 @@ const CommandButton: FC<Props> = ({}) => {
         </>
     );
 };
-
-export default CommandButton;

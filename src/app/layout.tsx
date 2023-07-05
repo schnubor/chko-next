@@ -1,20 +1,24 @@
+// Utils
+import { Providers } from '@/app/providers';
+
+// UI
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { CommandButton } from '@/app/components/CommandButton';
 
 // Types
 import type { ReactNode } from 'react';
-import CommandButton from '@/app/components/CommandButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-    title: 'Christian Korndoerfer',
+    title: 'Christian Korndörfer',
     description: 'Senior Software Engineer',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={inter.className}>
                 <main className="mx-auto max-w-screen-sm font-sans text-stone-900">
                     <header className="mt-12 w-full">
@@ -28,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                         </div>
                     </header>
 
-                    {children}
+                    <Providers>{children}</Providers>
                 </main>
             </body>
         </html>
