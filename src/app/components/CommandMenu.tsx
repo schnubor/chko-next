@@ -16,9 +16,9 @@ import {
 } from '@radix-ui/react-icons';
 
 // Hooks
-import { useRef, useState } from 'react';
+import { FocusEventHandler, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { useOnClickOutside } from 'usehooks-ts';
+import { useIsMounted, useOnClickOutside } from 'usehooks-ts';
 
 // Types
 import type { FC, MouseEvent } from 'react';
@@ -31,12 +31,11 @@ interface Props {
 
 export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) => {
     const [topOffset, setTopOffset] = useState(0);
-    const ref = useRef(null);
+    const outsideClickRef = useRef(null);
     const { theme, setTheme } = useTheme();
+    const isMounted = useIsMounted();
 
-    console.log('theme', theme);
-
-    useOnClickOutside(ref, onClickOutside);
+    useOnClickOutside(outsideClickRef, onClickOutside);
 
     const handleMouseEnter = (event: MouseEvent<HTMLElement>) => {
         const target = event.target as HTMLElement;
@@ -44,6 +43,15 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
 
         setTopOffset(offset);
     };
+
+    const handleFocus: FocusEventHandler<HTMLElement> = (event) => {
+        const target = event.target as HTMLElement;
+        const offset = target.offsetTop - 8;
+
+        setTopOffset(offset);
+    };
+
+    if (!isMounted) return null;
 
     return (
         <Command.Dialog
@@ -54,7 +62,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
         >
             <div
                 className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg sm:w-96"
-                ref={ref}
+                ref={outsideClickRef}
             >
                 <div
                     className="pointer-events-none absolute w-full p-2 transition-all duration-100 ease-out"
@@ -68,18 +76,21 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                         icon={BackpackIcon}
                         title="Work"
                         onMouseEnter={handleMouseEnter}
+                        onFocus={handleFocus}
                         onClick={() => console.log('Work')}
                     />
                     <CommandItem
                         icon={StackIcon}
                         title="Stack & Tools"
                         onMouseEnter={handleMouseEnter}
+                        onFocus={handleFocus}
                         onClick={() => console.log('Stack')}
                     />
                     <CommandItem
                         icon={RocketIcon}
                         title="Personal projects"
                         onMouseEnter={handleMouseEnter}
+                        onFocus={handleFocus}
                         onClick={() => console.log('Projects')}
                     />
 
@@ -90,6 +101,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 title="Github"
                                 isInGroup
                                 onMouseEnter={handleMouseEnter}
+                                onFocus={handleFocus}
                                 onClick={() => console.log('Github')}
                             />
                             <CommandItem
@@ -97,6 +109,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 title="Twitter"
                                 isInGroup
                                 onMouseEnter={handleMouseEnter}
+                                onFocus={handleFocus}
                                 onClick={() => console.log('Twitter')}
                             />
                             <CommandItem
@@ -104,6 +117,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 title="LinkedIn"
                                 isInGroup
                                 onMouseEnter={handleMouseEnter}
+                                onFocus={handleFocus}
                                 onClick={() => console.log('LinkedIn')}
                             />
                         </div>
@@ -116,6 +130,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 title="Light theme"
                                 isInGroup
                                 onMouseEnter={handleMouseEnter}
+                                onFocus={handleFocus}
                                 onClick={() => {
                                     setTheme('light');
                                     console.log('setTheme light');
@@ -126,6 +141,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 title="Dark theme"
                                 isInGroup
                                 onMouseEnter={handleMouseEnter}
+                                onFocus={handleFocus}
                                 onClick={() => {
                                     setTheme('dark');
                                     console.log('setTheme dark');
@@ -136,6 +152,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 title="System theme"
                                 isInGroup
                                 onMouseEnter={handleMouseEnter}
+                                onFocus={handleFocus}
                                 onClick={() => {
                                     setTheme('system');
                                     console.log('setTheme system');
