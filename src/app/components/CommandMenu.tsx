@@ -5,23 +5,20 @@ import { Command } from 'cmdk';
 import { CommandItem } from './CommandItem';
 import {
     BackpackIcon,
-    DesktopIcon,
     GitHubLogoIcon,
     LinkedInLogoIcon,
-    MoonIcon,
     RocketIcon,
     StackIcon,
-    SunIcon,
     TwitterLogoIcon,
 } from '@radix-ui/react-icons';
+import { ThemeCommandItem } from '@/app/components/ThemeCommandItem';
 
 // Hooks
-import { FocusEventHandler, useRef, useState } from 'react';
-import { useTheme } from 'next-themes';
-import { useIsMounted, useOnClickOutside } from 'usehooks-ts';
+import { useRef, useState } from 'react';
+import { useOnClickOutside } from 'usehooks-ts';
 
 // Types
-import type { FC, MouseEvent } from 'react';
+import type { FocusEventHandler, FC, MouseEvent } from 'react';
 
 interface Props {
     open: boolean;
@@ -32,8 +29,6 @@ interface Props {
 export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) => {
     const [topOffset, setTopOffset] = useState(0);
     const outsideClickRef = useRef(null);
-    const { theme, setTheme } = useTheme();
-    const isMounted = useIsMounted();
 
     useOnClickOutside(outsideClickRef, onClickOutside);
 
@@ -50,8 +45,6 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
 
         setTopOffset(offset);
     };
-
-    if (!isMounted) return null;
 
     return (
         <Command.Dialog
@@ -125,38 +118,20 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
 
                     <Command.Group heading="Theme" className="ml-2 mt-2 text-xs text-stone-500">
                         <div className="mt-2">
-                            <CommandItem
-                                icon={SunIcon}
-                                title="Light theme"
-                                isInGroup
+                            <ThemeCommandItem
                                 onMouseEnter={handleMouseEnter}
                                 onFocus={handleFocus}
-                                onClick={() => {
-                                    setTheme('light');
-                                    console.log('setTheme light');
-                                }}
+                                theme="light"
                             />
-                            <CommandItem
-                                icon={MoonIcon}
-                                title="Dark theme"
-                                isInGroup
+                            <ThemeCommandItem
                                 onMouseEnter={handleMouseEnter}
                                 onFocus={handleFocus}
-                                onClick={() => {
-                                    setTheme('dark');
-                                    console.log('setTheme dark');
-                                }}
+                                theme="dark"
                             />
-                            <CommandItem
-                                icon={DesktopIcon}
-                                title="System theme"
-                                isInGroup
+                            <ThemeCommandItem
                                 onMouseEnter={handleMouseEnter}
                                 onFocus={handleFocus}
-                                onClick={() => {
-                                    setTheme('system');
-                                    console.log('setTheme system');
-                                }}
+                                theme="system"
                             />
                         </div>
                     </Command.Group>

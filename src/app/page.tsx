@@ -1,10 +1,9 @@
 // Utils
-import Image from 'next/image';
 import { format } from 'date-fns';
 
 // UI
-import CommandButton from '@/app/components/CommandButton';
-import { ClockIcon, DrawingPinIcon, SewingPinIcon } from '@radix-ui/react-icons';
+import { ClockIcon, DrawingPinIcon } from '@radix-ui/react-icons';
+import ThemeSwitch from '@/app/components/ThemeSwitch';
 
 export default function Home() {
     return (
@@ -27,6 +26,8 @@ export default function Home() {
                 <DrawingPinIcon className="mr-2 inline" /> Berlin ·{' '}
                 <ClockIcon className="mx-2 inline" /> {format(new Date(), 'HH:mm')}
             </div>
+
+            {/*<ThemeSwitch theme={'system'} />*/}
         </>
     );
 }
