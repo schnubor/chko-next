@@ -12,7 +12,7 @@ export default function Home() {
                 I design, build and ship web applications since 2008 and enjoy helping enthusiastic
                 people bringing their ideas to life. Currently at{' '}
                 <a
-                    className="text-stone-500 outline-none hover:text-stone-900"
+                    className="text-stone-500 outline-none transition hover:text-stone-900 dark:hover:text-stone-300"
                     href="https://perspective.co"
                     target="_blank"
                     rel="noopener"

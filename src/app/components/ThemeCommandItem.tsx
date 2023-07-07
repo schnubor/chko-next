@@ -6,11 +6,12 @@ import ThemeSwitch from '@/app/components/ThemeSwitch';
 
 // Types
 import type { FC, MouseEvent, FocusEventHandler } from 'react';
+import { Theme } from '@/app/types';
 
 interface Props {
     onMouseEnter: (event: MouseEvent<HTMLElement>) => void;
     onFocus: FocusEventHandler<HTMLElement>;
-    theme: string;
+    theme: Theme;
 }
 
 export const ThemeCommandItem: FC<Props> = ({ onMouseEnter, onFocus, theme }) => {

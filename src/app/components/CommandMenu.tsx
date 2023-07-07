@@ -19,6 +19,7 @@ import { useOnClickOutside } from 'usehooks-ts';
 
 // Types
 import type { FocusEventHandler, FC, MouseEvent } from 'react';
+import { Theme } from '@/app/types';
 
 interface Props {
     open: boolean;
@@ -54,14 +55,14 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
             className="fixed top-0 flex h-screen w-screen animate-fadeIn items-center justify-center bg-stone-800/50 backdrop-blur-sm"
         >
             <div
-                className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg sm:w-96"
+                className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-stone-800 dark:bg-stone-900 sm:w-96"
                 ref={outsideClickRef}
             >
                 <div
                     className="pointer-events-none absolute w-full p-2 transition-all duration-100 ease-out"
                     style={{ top: `${topOffset}px` }}
                 >
-                    <div className="h-10 rounded-lg bg-stone-300" />
+                    <div className="h-10 rounded-lg bg-stone-300 dark:bg-stone-800" />
                 </div>
 
                 <Command.List className="relative z-10 p-2">
@@ -121,17 +122,17 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                             <ThemeCommandItem
                                 onMouseEnter={handleMouseEnter}
                                 onFocus={handleFocus}
-                                theme="light"
+                                theme={Theme.LIGHT}
                             />
                             <ThemeCommandItem
                                 onMouseEnter={handleMouseEnter}
                                 onFocus={handleFocus}
-                                theme="dark"
+                                theme={Theme.DARK}
                             />
                             <ThemeCommandItem
                                 onMouseEnter={handleMouseEnter}
                                 onFocus={handleFocus}
-                                theme="system"
+                                theme={Theme.SYSTEM}
                             />
                         </div>
                     </Command.Group>

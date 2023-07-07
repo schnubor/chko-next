@@ -5,3 +5,7 @@
 html {
   background: #e5e4e2;
 }
+
+html.dark {
+  @apply bg-neutral-900;
+}
