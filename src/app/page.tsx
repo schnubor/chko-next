@@ -1,9 +1,9 @@
 // Utils
 import { format } from 'date-fns';
+import Image from 'next/image';
 
 // UI
 import { ClockIcon, DrawingPinIcon } from '@radix-ui/react-icons';
-import ThemeSwitch from '@/app/components/ThemeSwitch';
 
 export default function Home() {
     return (
@@ -27,7 +27,32 @@ export default function Home() {
                 <ClockIcon className="mx-2 inline" /> {format(new Date(), 'HH:mm')}
             </div>
 
-            {/*<ThemeSwitch theme={'system'} />*/}
+            <div className="mt-24">
+                <h2 className="font-semibold">Work</h2>
+                <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div className="col-span-2 rounded-lg bg-stone-300 p-4 dark:bg-stone-800">
+                        <Image src="/perspective.png" alt="Perspective" width={50} height={50} />
+                        <div className="mt-6">
+                            <h3 className="font-semibold">perspective.co</h3>
+                            <span className="text-sm">2017 - today</span>
+                        </div>
+                    </div>
+                    <div className="rounded-lg bg-stone-300 p-4 dark:bg-stone-800">
+                        <Image src="/perspective.png" alt="Perspective" width={50} height={50} />
+                        <div className="mt-6">
+                            <h3 className="font-semibold">styla.com</h3>
+                            <span className="text-sm">2014 - 2017</span>
+                        </div>
+                    </div>
+                    <div className="rounded-lg bg-stone-300 p-4 dark:bg-stone-800">
+                        <Image src="/perspective.png" alt="Perspective" width={50} height={50} />
+                        <div className="mt-6">
+                            <h3 className="font-semibold">tape.tv</h3>
+                            <span className="text-sm">2012 - 2014</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }

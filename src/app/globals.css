@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 html {
-  background: #e5e4e2;
+    @apply bg-stone-200;
 }
 
 html.dark {
-  @apply bg-neutral-900;
+    @apply bg-stone-900;
 }
