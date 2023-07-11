@@ -33,7 +33,7 @@ export const CommandItem: FC<Props> = ({
         <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
             <button
                 onClick={onClick}
-                className="flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-stone-300"
+                className="flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-neutral-300"
             >
                 <Icon
                     className={clsx('h4- w-4', {

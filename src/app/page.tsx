@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 // UI
 import { ClockIcon, DrawingPinIcon } from '@radix-ui/react-icons';
+import { WorkTile } from '@/app/components/WorkTile';
 
 export default function Home() {
     return (
@@ -12,7 +13,7 @@ export default function Home() {
                 I design, build and ship web applications since 2008 and enjoy helping enthusiastic
                 people bringing their ideas to life. Currently at{' '}
                 <a
-                    className="text-stone-500 outline-none transition hover:text-stone-900 dark:hover:text-stone-300"
+                    className="text-stone-500 outline-none transition hover:text-stone-900 dark:text-neutral-500 dark:hover:text-neutral-300"
                     href="https://perspective.co"
                     target="_blank"
                     rel="noopener"
@@ -22,37 +23,108 @@ export default function Home() {
                 .
             </p>
 
-            <div className="mt-2 flex items-center text-xs text-stone-500">
+            <div className="mt-2 flex items-center text-xs text-stone-500 dark:text-neutral-500">
                 <DrawingPinIcon className="mr-2 inline" /> Berlin ·{' '}
                 <ClockIcon className="mx-2 inline" /> {format(new Date(), 'HH:mm')}
             </div>
 
-            <div className="mt-24">
+            <section className="mt-24">
                 <h2 className="font-semibold">Work</h2>
                 <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div className="col-span-2 rounded-lg bg-stone-300 p-4 dark:bg-stone-800">
-                        <Image src="/perspective.png" alt="Perspective" width={50} height={50} />
-                        <div className="mt-6">
-                            <h3 className="font-semibold">perspective.co</h3>
-                            <span className="text-sm">2017 - today</span>
-                        </div>
-                    </div>
-                    <div className="rounded-lg bg-stone-300 p-4 dark:bg-stone-800">
-                        <Image src="/perspective.png" alt="Perspective" width={50} height={50} />
-                        <div className="mt-6">
-                            <h3 className="font-semibold">styla.com</h3>
-                            <span className="text-sm">2014 - 2017</span>
-                        </div>
-                    </div>
-                    <div className="rounded-lg bg-stone-300 p-4 dark:bg-stone-800">
-                        <Image src="/perspective.png" alt="Perspective" width={50} height={50} />
-                        <div className="mt-6">
-                            <h3 className="font-semibold">tape.tv</h3>
-                            <span className="text-sm">2012 - 2014</span>
-                        </div>
-                    </div>
+                    <WorkTile
+                        title="perspective.co"
+                        description="Lead Frontend Engineer, 2017 - today"
+                        className="col-span-1 sm:col-span-2"
+                    >
+                        <Image src="/perspective.png" alt="Perspective" width={24} height={24} />
+                    </WorkTile>
+                    <WorkTile title="styla.com" description="Fullstack Developer, 2014 - 2017">
+                        <svg
+                            className="text-stone-900 dark:text-neutral-300"
+                            height="100%"
+                            viewBox="0 0 243 255"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <rect x="60" width="170" height="25" rx="12.5" fill="currentColor" />
+                            <rect y="58" width="150" height="25" rx="12.5" fill="currentColor" />
+                            <rect
+                                x="33"
+                                y="115"
+                                width="168"
+                                height="25"
+                                rx="12.5"
+                                fill="currentColor"
+                            />
+                            <rect
+                                x="93"
+                                y="172"
+                                width="150"
+                                height="25"
+                                rx="12.5"
+                                fill="currentColor"
+                            />
+                            <rect
+                                x="19"
+                                y="230"
+                                width="170"
+                                height="25"
+                                rx="12.5"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </WorkTile>
+                    <WorkTile
+                        title="tape.tv"
+                        description="UI Designer & Frontend Developer, 2012 - 2014"
+                    >
+                        <svg
+                            height="100%"
+                            viewBox="0 0 602 152"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="text-stone-900 dark:text-neutral-300"
+                        >
+                            <path
+                                d="M403.776 112.834H374.701V84.0841H403.776V112.834Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M45.9366 39.6353H56.1366V60.934H45.9366V83.1315C45.9366 88.984 47.4366 89.8815 51.7879 89.8815H56.1366V112.834H33.9366C21.9366 112.834 15.6366 107.282 15.6366 95.434V60.934H7.08661V39.6353H15.6366V7.08655H45.9366V39.6353Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M125.286 76.8351C125.286 69.1851 118.686 62.8838 111.036 62.8838C103.385 62.8838 97.386 69.4838 97.386 76.8351C97.386 84.6326 103.236 90.6313 111.036 90.6313C118.686 90.6313 125.286 84.6326 125.286 76.8351ZM153.936 60.9338V91.5326H162.337V112.834H125.586V102.033H125.286C118.536 110.583 111.636 115.234 100.086 115.234C78.1847 115.234 65.7347 96.3326 65.7347 76.2351C65.7347 54.0351 77.436 37.2351 100.986 37.2351C111.336 37.2351 120.636 42.4863 125.886 50.8851H126.186V39.6351H162.337V60.9338H153.936Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M223.384 90.6315C231.184 90.6315 237.484 84.4815 237.484 76.684C237.484 69.034 230.884 63.0352 223.384 63.0352C215.884 63.0352 210.034 69.3327 210.034 76.684C210.034 84.3327 215.584 90.6315 223.384 90.6315ZM209.584 48.7852C209.584 50.4365 216.334 37.2352 234.634 37.2352C256.685 37.2352 269.585 53.2852 269.585 74.434C269.585 96.7815 258.035 115.234 234.185 115.234C223.834 115.234 215.884 110.731 210.784 104.133H210.484V104.433V122.734H220.384V144.033H172.534V122.734H180.183V60.934H172.534V39.6352H209.584V48.7852Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M337.832 70.2336C337.832 61.6848 334.682 55.5361 325.232 55.5361C315.332 55.5361 310.532 62.2836 310.532 70.2336H337.832ZM364.231 94.9823C358.081 109.232 341.282 115.234 326.731 115.234C291.182 115.234 279.631 96.0323 279.631 76.8348C279.631 50.8848 299.881 37.2361 324.182 37.2361C354.932 37.2361 366.782 52.6861 366.782 82.2336H310.982C310.681 91.2323 315.632 96.3323 325.381 96.3323C330.481 96.3323 335.281 94.2323 337.981 89.7336L364.231 94.9823Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M444.93 39.6353H455.13V60.934H444.93V83.1315C444.93 88.984 446.431 89.8815 450.782 89.8815H455.13V112.834H432.93C420.931 112.834 414.63 107.282 414.63 95.434V60.934H406.08V39.6353H414.63V7.08655H444.93V39.6353Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M462.63 39.6353H504.029V59.434H497.579L509.881 84.4815L522.779 59.434H516.78V39.6353H555.03V60.934H550.381L522.33 112.834H494.28L467.579 60.934H462.63V39.6353Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M575.79 21.9914H577.809C579.541 21.9914 581.274 21.7351 581.274 19.6601C581.274 17.7589 579.085 17.7589 577.449 17.7589H575.79V21.9914ZM570.811 31.0989V29.0026H572.663V17.7589H570.811V15.6626H578.268C579.445 15.6626 581.995 15.4914 583.63 17.4176C584.425 18.3151 584.4 19.2764 584.4 19.5126C584.4 21.3064 583.511 22.3326 581.683 23.0164V23.0601C583.655 23.4876 583.823 24.5776 583.823 25.5201V29.0026H585.505V31.0989H580.696V25.6889C580.696 24.2364 578.941 24.0864 577.666 24.0864H575.79V29.0026H577.713V31.0989H570.811Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M565.525 23.3793C565.537 30.3543 571.185 36.0018 578.157 36.0131C585.134 36.0018 590.778 30.3543 590.792 23.3793C590.778 16.4031 585.134 10.7593 578.157 10.7481C571.185 10.7593 565.537 16.4031 565.525 23.3793ZM561.905 23.3793C561.907 14.4018 569.182 7.12931 578.157 7.12556C587.137 7.12931 594.409 14.4018 594.412 23.3793C594.409 32.3581 587.137 39.6331 578.157 39.6331C569.182 39.6331 561.907 32.3581 561.905 23.3793Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </WorkTile>
                 </div>
-            </div>
+            </section>
         </>
     );
 }

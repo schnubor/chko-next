@@ -2,7 +2,7 @@
 import { Command } from 'cmdk';
 
 // Utils
-import ThemeSwitch from '@/app/components/ThemeSwitch';
+import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';
 
 // Types
 import type { FC, MouseEvent, FocusEventHandler } from 'react';

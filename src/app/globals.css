@@ -7,5 +7,5 @@ html {
 }
 
 html.dark {
-    @apply bg-stone-900;
+    @apply bg-neutral-900;
 }

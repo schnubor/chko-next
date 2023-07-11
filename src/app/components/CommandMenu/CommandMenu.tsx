@@ -11,7 +11,7 @@ import {
     StackIcon,
     TwitterLogoIcon,
 } from '@radix-ui/react-icons';
-import { ThemeCommandItem } from '@/app/components/ThemeCommandItem';
+import { ThemeCommandItem } from '@/app/components/CommandMenu/ThemeCommandItem';
 
 // Hooks
 import { useRef, useState } from 'react';
@@ -52,17 +52,17 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
             open={open}
             onOpenChange={onOpenChange}
             label="Menu"
-            className="fixed top-0 flex h-screen w-screen animate-fadeIn items-center justify-center bg-stone-800/50 backdrop-blur-sm"
+            className="fixed top-0 flex h-screen w-screen animate-fadeIn items-center justify-center bg-stone-800/50 backdrop-blur-sm dark:bg-neutral-800/50"
         >
             <div
-                className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-stone-800 dark:bg-stone-900 sm:w-96"
+                className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900 sm:w-96"
                 ref={outsideClickRef}
             >
                 <div
                     className="pointer-events-none absolute w-full p-2 transition-all duration-100 ease-out"
                     style={{ top: `${topOffset}px` }}
                 >
-                    <div className="h-10 rounded-lg bg-stone-300 dark:bg-stone-800" />
+                    <div className="h-10 rounded-lg bg-stone-300 dark:bg-neutral-800" />
                 </div>
 
                 <Command.List className="relative z-10 p-2">
