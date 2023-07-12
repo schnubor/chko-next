@@ -32,7 +32,7 @@ const themeMap = {
 
 const ThemeSwitch: FC<Props> = ({ theme }) => {
     const [mounted, setMounted] = useState(false);
-    const { theme: activeTheme, setTheme } = useTheme();
+    const { setTheme } = useTheme();
 
     // useEffect only runs on the client, so now we can safely show the UI
     useEffect(() => {

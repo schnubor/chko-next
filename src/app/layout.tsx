@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
     title: 'Christian Korndörfer',
     description: 'Senior Software Engineer',
+
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

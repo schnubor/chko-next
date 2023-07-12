@@ -59,8 +59,9 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                     className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
                     ref={outsideClickRef}
                 >
+                    {/*BG Slider*/}
                     <div
-                        className="pointer-events-none absolute w-full p-2 transition-all duration-100 ease-out"
+                        className="pointer-events-none absolute hidden w-full p-2 transition-all duration-100 ease-out sm:block"
                         style={{ top: `${topOffset}px` }}
                     >
                         <div className="h-10 rounded-lg bg-stone-300 dark:bg-neutral-800" />
