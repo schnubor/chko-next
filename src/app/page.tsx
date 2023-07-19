@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 
 // UI
 import { ClockIcon, DrawingPinIcon } from '@radix-ui/react-icons';
-import { Stack } from '@/app/components/Stack';
+import { Butter } from '@/app/components/Butter';
 import { Work } from '@/app/components/Work';
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
 
             <Work />
 
-            <Stack />
+            <Butter />
         </>
     );
 }
