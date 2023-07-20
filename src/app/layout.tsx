@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <html lang="en" suppressHydrationWarning>
             <body className={inter.className}>
                 <Providers>
-                    <main className="mx-auto max-w-screen-sm px-6 pb-12 font-sans text-stone-900 dark:text-neutral-300 sm:px-0">
+                    <main className="mx-auto max-w-screen-sm px-6 pb-32 font-sans text-stone-900 dark:text-neutral-300 sm:px-0">
                         <header className="mt-12 w-full">
                             <div className="flex w-full items-center justify-between">
                                 <div className="flex-col">

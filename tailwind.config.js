@@ -11,6 +11,7 @@ module.exports = {
             animation: {
                 slideRightAndFade: 'slideRightAndFade 0.2s ease-out',
                 slideDownAndFade: 'slideDownAndFade 0.2s ease-out',
+                slideUpAndFade: 'slideUpAndFade 0.2s ease-out',
                 fadeIn: 'fadeIn 0.2s ease-out',
             },
             keyframes: {
@@ -27,6 +28,16 @@ module.exports = {
                 slideDownAndFade: {
                     '0%': {
                         transform: 'translateY(-10px)',
+                        opacity: 0,
+                    },
+                    '100%': {
+                        transform: 'translateY(0px)',
+                        opacity: 1,
+                    },
+                },
+                slideUpAndFade: {
+                    '0%': {
+                        transform: 'translateY(10px)',
                         opacity: 0,
                     },
                     '100%': {
