@@ -1,5 +1,5 @@
 // Utils
-import { Command } from 'cmdk';
+import { Command } from 'carloslfu-cmdk-internal';
 
 // UI
 import { CommandItem } from './CommandItem';
@@ -52,7 +52,8 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
             open={open}
             onOpenChange={onOpenChange}
             label="Menu"
-            className="fixed left-0 top-0 flex h-screen w-screen animate-fadeIn items-center justify-center bg-stone-800/50 backdrop-blur-sm dark:bg-neutral-800/50"
+            overlayClassName="fixed left-0 top-0 animate-fadeIn data-[state='closed']:animate-fadeOut bg-stone-800/50 backdrop-blur-sm dark:bg-neutral-800/50 h-screen w-screen"
+            contentClassName="data-[state='closed']:animate-slideUpAndFadeOut group fixed left-0 top-0 flex h-screen w-screen items-center justify-center"
         >
             <div className="w-full p-4 sm:w-96">
                 <div

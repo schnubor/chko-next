@@ -10,9 +10,9 @@ import { useEffect, useState } from 'react';
 // Types
 import type { FC } from 'react';
 
-interface Props { }
+interface Props {}
 
-export const CommandButton: FC<Props> = ({ }) => {
+export const CommandButton: FC<Props> = ({}) => {
     const [open, setOpen] = useState(false);
 
     // Toggle the menu when ⌘K is pressed
@@ -29,6 +29,8 @@ export const CommandButton: FC<Props> = ({ }) => {
         return () => document.removeEventListener('keydown', down);
     }, []);
 
+    const hideCommandMenu = () => setOpen(false);
+
     return (
         <>
             <Tooltip.Provider>
@@ -43,14 +45,14 @@ export const CommandButton: FC<Props> = ({ }) => {
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                         <Tooltip.Content
-                            className="data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade flex select-none items-center space-x-1 rounded-md bg-stone-800 dark:bg-neutral-800 p-1 text-xs leading-none text-stone-50 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
+                            className="data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade flex select-none items-center space-x-1 rounded-md bg-stone-800 p-1 text-xs leading-none text-stone-50 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade dark:bg-neutral-800"
                             sideOffset={5}
                             side="left"
                         >
-                            <kbd className="flex h-4 w-4 items-center justify-center rounded bg-stone-600 dark:bg-neutral-600 p-1 text-[10px] leading-none">
+                            <kbd className="flex h-4 w-4 items-center justify-center rounded bg-stone-600 p-1 text-[10px] leading-none dark:bg-neutral-600">
                                 ⌘
                             </kbd>
-                            <kbd className="flex h-4 w-4 items-center justify-center rounded bg-stone-600 dark:bg-neutral-600 text-[10px]">
+                            <kbd className="flex h-4 w-4 items-center justify-center rounded bg-stone-600 text-[10px] dark:bg-neutral-600">
                                 K
                             </kbd>
                         </Tooltip.Content>
@@ -58,7 +60,7 @@ export const CommandButton: FC<Props> = ({ }) => {
                 </Tooltip.Root>
             </Tooltip.Provider>
 
-            <CommandMenu open={open} onOpenChange={setOpen} onClickOutside={() => setOpen(false)} />
+            <CommandMenu open={open} onOpenChange={setOpen} onClickOutside={hideCommandMenu} />
         </>
     );
 };

@@ -1,5 +1,5 @@
 // Utils
-import { Command } from 'cmdk';
+import { Command } from 'carloslfu-cmdk-internal';
 
 // Utils
 import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';

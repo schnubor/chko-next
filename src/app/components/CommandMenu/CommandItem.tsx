@@ -1,6 +1,6 @@
 // Utils
 import clsx from 'clsx';
-import { Command } from 'cmdk';
+import { Command } from 'carloslfu-cmdk-internal';
 
 // Types
 import type {

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// UI
 import { Piece } from './Piece';
 
 // Types

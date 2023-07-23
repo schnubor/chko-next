@@ -12,7 +12,9 @@ module.exports = {
                 slideRightAndFade: 'slideRightAndFade 0.2s ease-out',
                 slideDownAndFade: 'slideDownAndFade 0.2s ease-out',
                 slideUpAndFade: 'slideUpAndFade 0.2s ease-out',
+                slideUpAndFadeOut: 'slideUpAndFadeOut 0.2s ease-out',
                 fadeIn: 'fadeIn 0.2s ease-out',
+                fadeOut: 'fadeOut 0.2s ease-out',
             },
             keyframes: {
                 slideRightAndFade: {
@@ -45,12 +47,30 @@ module.exports = {
                         opacity: 1,
                     },
                 },
+                slideUpAndFadeOut: {
+                    '0%': {
+                        transform: 'translateY(0px)',
+                        opacity: 1,
+                    },
+                    '100%': {
+                        transform: 'translateY(-10px)',
+                        opacity: 0,
+                    },
+                },
                 fadeIn: {
                     '0%': {
                         opacity: 0,
                     },
                     '100%': {
                         opacity: 1,
+                    },
+                },
+                fadeOut: {
+                    '0%': {
+                        opacity: 1,
+                    },
+                    '100%': {
+                        opacity: 0,
                     },
                 },
             },

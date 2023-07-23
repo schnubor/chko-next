@@ -876,6 +876,13 @@ caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001464, caniuse-lite@^1.0.300015
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001511.tgz#e6e2a1614275c6fb8e3acfd74a8c3a70e53ed233"
   integrity sha512-NaWPJawcoedlghN4P7bDNeADD7K+rZaY6V8ZcME7PkEZo/nfOg+lnrUgRWiKbNxcQ4/toFKSxnS4WdbyPZnKkw==
 
+carloslfu-cmdk-internal@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/carloslfu-cmdk-internal/-/carloslfu-cmdk-internal-0.3.0.tgz#b58559ba823379ade61f9babc6813533310f0cf9"
+  integrity sha512-g7UkPfNL7O8WOxrhHDbAHBPgzvZKMUgYUHPwRMZXjDJ+29a4xPkYfOrRulBTh9OpU2MayMVxnLoR4uNvXyzBTg==
+  dependencies:
+    "@radix-ui/react-dialog" "1.0.0"
+
 chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
