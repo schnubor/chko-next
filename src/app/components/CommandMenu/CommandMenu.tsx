@@ -55,7 +55,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
             overlayClassName="fixed left-0 top-0 animate-fadeIn data-[state='closed']:animate-fadeOut bg-stone-800/50 backdrop-blur-sm dark:bg-neutral-800/50 h-screen w-screen"
             contentClassName="data-[state='closed']:animate-slideUpAndFadeOut group fixed left-0 top-0 flex h-screen w-screen items-center justify-center"
         >
-            <div className="w-full p-4 sm:w-96">
+            <div className="w-80 p-4 sm:w-96">
                 <div
                     className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
                     ref={outsideClickRef}
