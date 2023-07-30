@@ -12,12 +12,13 @@ interface Props {
     onMouseEnter: (event: MouseEvent<HTMLElement>) => void;
     onFocus: FocusEventHandler<HTMLElement>;
     theme: Theme;
+    onClick: () => void;
 }
 
-export const ThemeCommandItem: FC<Props> = ({ onMouseEnter, onFocus, theme }) => {
+export const ThemeCommandItem: FC<Props> = ({ onMouseEnter, onFocus, theme, onClick }) => {
     return (
         <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
-            <ThemeSwitch theme={theme} />
+            <ThemeSwitch theme={theme} onClick={onClick} />
         </Command.Item>
     );
 };

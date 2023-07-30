@@ -13,6 +13,7 @@ import { Theme } from '@/app/types';
 
 interface Props {
     theme: Theme;
+    onClick: () => void;
 }
 
 const themeMap = {
@@ -30,7 +31,7 @@ const themeMap = {
     },
 };
 
-const ThemeSwitch: FC<Props> = ({ theme }) => {
+const ThemeSwitch: FC<Props> = ({ theme, onClick }) => {
     const [mounted, setMounted] = useState(false);
     const { setTheme } = useTheme();
 
@@ -48,6 +49,7 @@ const ThemeSwitch: FC<Props> = ({ theme }) => {
 
     const handleClick = () => {
         setTheme(theme);
+        onClick();
     };
 
     return (

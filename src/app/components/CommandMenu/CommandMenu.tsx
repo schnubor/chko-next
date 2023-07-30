@@ -102,7 +102,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                     isInGroup
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
-                                    onClick={() => console.log('Github')}
+                                    onClick={onClickOutside}
                                 />
                                 <CommandItem
                                     icon={TwitterLogoIcon}
@@ -110,7 +110,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                     isInGroup
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
-                                    onClick={() => console.log('Twitter')}
+                                    onClick={onClickOutside}
                                 />
                                 <CommandItem
                                     icon={LinkedInLogoIcon}
@@ -118,7 +118,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                     isInGroup
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
-                                    onClick={() => console.log('LinkedIn')}
+                                    onClick={onClickOutside}
                                 />
                             </div>
                         </Command.Group>
@@ -128,16 +128,19 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 <ThemeCommandItem
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
+                                    onClick={onClickOutside}
                                     theme={Theme.LIGHT}
                                 />
                                 <ThemeCommandItem
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
+                                    onClick={onClickOutside}
                                     theme={Theme.DARK}
                                 />
                                 <ThemeCommandItem
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
+                                    onClick={onClickOutside}
                                     theme={Theme.SYSTEM}
                                 />
                             </div>
