@@ -5,7 +5,7 @@ import { WorkTile } from './WorkTile';
 export const Work = () => {
     return (
         <section className="mt-24">
-            <h2 className="font-semibold">Bread</h2>
+            <h2 className="font-semibold">Work</h2>
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <WorkTile
                     title="perspective.co"

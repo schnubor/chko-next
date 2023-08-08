@@ -12,7 +12,7 @@ interface Props {
     link: string;
 }
 
-export const Piece: FC<Props> = ({ title, src, link }) => {
+export const DockTile: FC<Props> = ({ title, src, link }) => {
     return (
         <Tooltip.Provider>
             <Tooltip.Root delayDuration={0}>
@@ -24,7 +24,7 @@ export const Piece: FC<Props> = ({ title, src, link }) => {
                                 width={50}
                                 height={50}
                                 alt={title}
-                                className="transition-transform group-hover:hover:scale-110"
+                                className="transition-transform duration-300 ease-out group-hover:scale-110"
                             />
                         </div>
                     </a>
