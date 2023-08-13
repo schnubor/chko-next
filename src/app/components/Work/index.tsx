@@ -8,13 +8,14 @@ export const Work = () => {
             <h2 className="font-semibold">Work</h2>
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
                 <WorkTile
+                    link="/perspective"
                     title="perspective.co"
                     description="Lead Frontend Engineer, 2017 - today"
                     className="col-span-1 sm:col-span-2"
                 >
                     <Image src="/perspective.png" alt="Perspective" width={32} height={32} />
                 </WorkTile>
-                <WorkTile title="styla.com" description="Fullstack Developer, 2014 - 2017">
+                <WorkTile title="styla.com" description="Fullstack Developer, 2014 - 2017" link="/styla">
                     <div className="h-6">
                         <svg
                             className="text-stone-900 dark:text-neutral-300"
@@ -55,6 +56,7 @@ export const Work = () => {
                 <WorkTile
                     title="tape.tv"
                     description="UI Designer & Frontend Developer, 2012 - 2014"
+                    link="/tapetv"
                 >
                     <div className="h-6">
                         <svg
