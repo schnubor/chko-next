@@ -15,6 +15,7 @@ module.exports = {
                 slideUpAndFadeOut: 'slideUpAndFadeOut 0.2s ease-out',
                 fadeIn: 'fadeIn 0.2s ease-out',
                 fadeOut: 'fadeOut 0.2s ease-out',
+                'gradient-x': 'gradient-x 15s ease infinite',
             },
             keyframes: {
                 slideRightAndFade: {
@@ -71,6 +72,16 @@ module.exports = {
                     },
                     '100%': {
                         opacity: 0,
+                    },
+                },
+                'gradient-x': {
+                    '0%, 100%': {
+                        'background-size': '300% 300%',
+                        'background-position': 'left center',
+                    },
+                    '50%': {
+                        'background-size': '300% 300%',
+                        'background-position': 'right center',
                     },
                 },
             },

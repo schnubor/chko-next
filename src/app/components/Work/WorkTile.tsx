@@ -18,7 +18,9 @@ export const WorkTile: FC<Props> = ({ children, title, description, className, l
                 {children}
                 <div className="mt-6">
                     <h3 className="font-semibold">{title}</h3>
-                    <span className="text-xs text-stone-500 dark:text-neutral-500">{description}</span>
+                    <span className="text-xs text-stone-500 dark:text-neutral-500">
+                        {description}
+                    </span>
                 </div>
             </div>
         </Link>

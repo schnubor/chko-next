@@ -6,7 +6,7 @@ import type { FC } from 'react';
 
 interface Props {}
 
-export const Butter: FC<Props> = ({}) => {
+export const Dock: FC<Props> = ({}) => {
     return (
         <section className="mt-24">
             <h2 className="font-semibold">Dock</h2>

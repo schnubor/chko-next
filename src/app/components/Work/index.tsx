@@ -15,7 +15,11 @@ export const Work = () => {
                 >
                     <Image src="/perspective.png" alt="Perspective" width={32} height={32} />
                 </WorkTile>
-                <WorkTile title="styla.com" description="Fullstack Developer, 2014 - 2017" link="/styla">
+                <WorkTile
+                    title="styla.com"
+                    description="Fullstack Developer, 2014 - 2017"
+                    link="/styla"
+                >
                     <div className="h-6">
                         <svg
                             className="text-stone-900 dark:text-neutral-300"
