@@ -28,9 +28,8 @@ export default function Home() {
                     target="_blank"
                     rel="noopener"
                 >
-                    perspective
+                    perspective.co
                 </a>
-                .
             </p>
 
             <div className="flex items-center text-xs text-stone-500 dark:text-neutral-500 mt-2">
