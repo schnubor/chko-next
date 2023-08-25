@@ -7,19 +7,20 @@ import {
     BackpackIcon,
     GitHubLogoIcon,
     LinkedInLogoIcon,
-    RocketIcon,
     StackIcon,
     TwitterLogoIcon,
 } from '@radix-ui/react-icons';
 import { ThemeCommandItem } from '@/app/components/CommandMenu/ThemeCommandItem';
 
 // Hooks
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 
 // Types
 import type { FocusEventHandler, FC, MouseEvent } from 'react';
 import { Theme } from '@/app/types';
+import { Breadcrumb } from './Breadcrumb';
+import { LinkCommandItem } from './LinkCommandItem';
 
 interface Props {
     open: boolean;
@@ -29,6 +30,7 @@ interface Props {
 
 export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) => {
     const [topOffset, setTopOffset] = useState(0);
+    const [activeMenu, setActiveMenu] = useState('main');
     const outsideClickRef = useRef(null);
 
     useOnClickOutside(outsideClickRef, onClickOutside);
@@ -47,6 +49,12 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
         setTopOffset(offset);
     };
 
+    useEffect(() => {
+        if (open) {
+            setActiveMenu('main');
+        }
+    }, [open]);
+
     return (
         <Command.Dialog
             open={open}
@@ -60,7 +68,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                     className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
                     ref={outsideClickRef}
                 >
-                    {/*BG Slider*/}
+                    {/* BG Slider */}
                     <div
                         className="pointer-events-none absolute hidden w-full p-2 transition-all duration-100 ease-out sm:block"
                         style={{ top: `${topOffset}px` }}
@@ -69,82 +77,112 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                     </div>
 
                     <Command.List className="relative z-10 p-2">
-                        <CommandItem
-                            icon={BackpackIcon}
-                            title="Work"
-                            onMouseEnter={handleMouseEnter}
-                            onFocus={handleFocus}
-                            onClick={() => console.log('Work')}
-                        />
-                        <CommandItem
-                            icon={StackIcon}
-                            title="Stack & Tools"
-                            onMouseEnter={handleMouseEnter}
-                            onFocus={handleFocus}
-                            onClick={() => console.log('Stack')}
-                        />
-                        <CommandItem
-                            icon={RocketIcon}
-                            title="Personal projects"
-                            onMouseEnter={handleMouseEnter}
-                            onFocus={handleFocus}
-                            onClick={() => console.log('Projects')}
-                        />
+                        <Breadcrumb activeMenu={activeMenu} onPillClick={setActiveMenu} />
 
-                        <Command.Group
-                            heading="Social"
-                            className="ml-2 mt-2 text-xs text-stone-500"
-                        >
-                            <div className="mt-2">
+                        {activeMenu === 'main' && (
+                            <>
                                 <CommandItem
-                                    icon={GitHubLogoIcon}
-                                    title="Github"
-                                    isInGroup
+                                    icon={BackpackIcon}
+                                    title="Work"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
-                                    onClick={onClickOutside}
+                                    onClick={() => setActiveMenu('work')}
+                                    hasSubmenu
                                 />
-                                <CommandItem
-                                    icon={TwitterLogoIcon}
-                                    title="Twitter"
-                                    isInGroup
-                                    onMouseEnter={handleMouseEnter}
-                                    onFocus={handleFocus}
-                                    onClick={onClickOutside}
-                                />
-                                <CommandItem
-                                    icon={LinkedInLogoIcon}
-                                    title="LinkedIn"
-                                    isInGroup
-                                    onMouseEnter={handleMouseEnter}
-                                    onFocus={handleFocus}
-                                    onClick={onClickOutside}
-                                />
-                            </div>
-                        </Command.Group>
 
-                        <Command.Group heading="Theme" className="ml-2 mt-2 text-xs text-stone-500">
-                            <div className="mt-2">
-                                <ThemeCommandItem
+                                <CommandItem
+                                    icon={StackIcon}
+                                    title="Dock"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
-                                    onClick={onClickOutside}
-                                    theme={Theme.LIGHT}
+                                    onClick={() => setActiveMenu('dock')}
+                                    hasSubmenu
                                 />
-                                <ThemeCommandItem
+
+                                <Command.Group
+                                    heading="Social"
+                                    className="ml-2 mt-2 text-xs text-stone-500"
+                                >
+                                    <div className="mt-2">
+                                        <CommandItem
+                                            icon={GitHubLogoIcon}
+                                            title="Github"
+                                            isInGroup
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            onClick={onClickOutside}
+                                        />
+                                        <CommandItem
+                                            icon={TwitterLogoIcon}
+                                            title="Twitter"
+                                            isInGroup
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            onClick={onClickOutside}
+                                        />
+                                        <CommandItem
+                                            icon={LinkedInLogoIcon}
+                                            title="LinkedIn"
+                                            isInGroup
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            onClick={onClickOutside}
+                                        />
+                                    </div>
+                                </Command.Group>
+
+                                <Command.Group
+                                    heading="Theme"
+                                    className="ml-2 mt-2 text-xs text-stone-500"
+                                >
+                                    <div className="mt-2">
+                                        <ThemeCommandItem
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            onClick={onClickOutside}
+                                            theme={Theme.LIGHT}
+                                        />
+                                        <ThemeCommandItem
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            onClick={onClickOutside}
+                                            theme={Theme.DARK}
+                                        />
+                                        <ThemeCommandItem
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            onClick={onClickOutside}
+                                            theme={Theme.SYSTEM}
+                                        />
+                                    </div>
+                                </Command.Group>
+                            </>
+                        )}
+
+                        {activeMenu === 'work' && (
+                            <>
+                                <LinkCommandItem
+                                    icon={BackpackIcon}
+                                    title="Perspective"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
+                                    link="/perspective"
                                     onClick={onClickOutside}
-                                    theme={Theme.DARK}
                                 />
-                                <ThemeCommandItem
+                            </>
+                        )}
+
+                        {activeMenu === 'dock' && (
+                            <>
+                                <CommandItem
+                                    icon={BackpackIcon}
+                                    title="Perspective"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
-                                    onClick={onClickOutside}
-                                    theme={Theme.SYSTEM}
+                                    onClick={() => setActiveMenu('work')}
                                 />
-                            </div>
-                        </Command.Group>
+                            </>
+                        )}
                     </Command.List>
                 </div>
             </div>

@@ -11,6 +11,7 @@ import type {
     FocusEventHandler,
 } from 'react';
 import type { IconProps } from '@radix-ui/react-icons/dist/types';
+import { ChevronRightIcon } from '@radix-ui/react-icons';
 
 interface Props {
     icon: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
@@ -19,6 +20,7 @@ interface Props {
     onMouseEnter: (event: MouseEvent<HTMLElement>) => void;
     onFocus: FocusEventHandler<HTMLElement>;
     onClick: () => void;
+    hasSubmenu?: boolean;
 }
 
 export const CommandItem: FC<Props> = ({
@@ -28,6 +30,7 @@ export const CommandItem: FC<Props> = ({
     onMouseEnter,
     onClick,
     onFocus,
+    hasSubmenu,
 }) => {
     return (
         <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
@@ -42,6 +45,7 @@ export const CommandItem: FC<Props> = ({
                     })}
                 />{' '}
                 <span className="ml-4">{title}</span>
+                {hasSubmenu && <ChevronRightIcon className="ml-auto mr-4" />}
             </button>
         </Command.Item>
     );
