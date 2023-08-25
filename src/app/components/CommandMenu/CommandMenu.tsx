@@ -21,6 +21,8 @@ import type { FocusEventHandler, FC, MouseEvent } from 'react';
 import { Theme } from '@/app/types';
 import { Breadcrumb } from './Breadcrumb';
 import { LinkCommandItem } from './LinkCommandItem';
+import { DOCK_ITEMS } from '@/app/constants';
+import { ExternalLinkCommandItem } from './ExternalLinkCommandItem';
 
 interface Props {
     open: boolean;
@@ -169,18 +171,42 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                     link="/perspective"
                                     onClick={onClickOutside}
                                 />
+
+                                <LinkCommandItem
+                                    icon={BackpackIcon}
+                                    title="Styla"
+                                    onMouseEnter={handleMouseEnter}
+                                    onFocus={handleFocus}
+                                    link="/styla"
+                                    onClick={onClickOutside}
+                                />
+
+                                <LinkCommandItem
+                                    icon={BackpackIcon}
+                                    title="tape.tv"
+                                    onMouseEnter={handleMouseEnter}
+                                    onFocus={handleFocus}
+                                    link="/tapetv"
+                                    onClick={onClickOutside}
+                                />
                             </>
                         )}
 
                         {activeMenu === 'dock' && (
                             <>
-                                <CommandItem
-                                    icon={BackpackIcon}
-                                    title="Perspective"
-                                    onMouseEnter={handleMouseEnter}
-                                    onFocus={handleFocus}
-                                    onClick={() => setActiveMenu('work')}
-                                />
+                                {DOCK_ITEMS.map((item) => {
+                                    return (
+                                        <ExternalLinkCommandItem
+                                            key={item.title}
+                                            icon={StackIcon}
+                                            title={item.title}
+                                            onMouseEnter={handleMouseEnter}
+                                            onFocus={handleFocus}
+                                            link={item.link}
+                                            onClick={onClickOutside}
+                                        />
+                                    );
+                                })}
                             </>
                         )}
                     </Command.List>
