@@ -1,3 +1,4 @@
+import { ArrowTopRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
 // Types
@@ -14,7 +15,7 @@ interface Props {
 export const WorkTile: FC<Props> = ({ children, title, description, className, link }) => {
     return (
         <Link href={link} className={className}>
-            <div className="rounded-lg bg-stone-300 p-4 dark:bg-neutral-800">
+            <div className="relative group rounded-lg bg-stone-300 p-4 dark:bg-neutral-800">
                 {children}
                 <div className="mt-6">
                     <h3 className="font-semibold">{title}</h3>
@@ -22,6 +23,8 @@ export const WorkTile: FC<Props> = ({ children, title, description, className, l
                         {description}
                     </span>
                 </div>
+
+                <ArrowTopRightIcon className="group-hover:scale-100 scale-0 transition ease-out duration-200 origin-top-right absolute right-2 top-2 w-5 h-5" />
             </div>
         </Link>
     );
