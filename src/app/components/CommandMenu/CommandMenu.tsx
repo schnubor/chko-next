@@ -1,3 +1,5 @@
+import { DOCK_ITEMS } from '@/app/constants';
+
 // Utils
 import { Command } from 'carloslfu-cmdk-internal';
 
@@ -11,6 +13,8 @@ import {
     TwitterLogoIcon,
 } from '@radix-ui/react-icons';
 import { ThemeCommandItem } from '@/app/components/CommandMenu/ThemeCommandItem';
+import { Breadcrumb } from './Breadcrumb';
+import { LinkCommandItem } from './LinkCommandItem';
 
 // Hooks
 import { useEffect, useRef, useState } from 'react';
@@ -19,10 +23,6 @@ import { useOnClickOutside } from 'usehooks-ts';
 // Types
 import type { FocusEventHandler, FC, MouseEvent } from 'react';
 import { Theme } from '@/app/types';
-import { Breadcrumb } from './Breadcrumb';
-import { LinkCommandItem } from './LinkCommandItem';
-import { DOCK_ITEMS } from '@/app/constants';
-import { ExternalLinkCommandItem } from './ExternalLinkCommandItem';
 
 interface Props {
     open: boolean;
@@ -164,7 +164,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                         {activeMenu === 'work' && (
                             <>
                                 <LinkCommandItem
-                                    icon={BackpackIcon}
+                                    src="/perspective.png"
                                     title="Perspective"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
@@ -173,7 +173,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 />
 
                                 <LinkCommandItem
-                                    icon={BackpackIcon}
+                                    src="/styla.png"
                                     title="Styla"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
@@ -182,7 +182,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                 />
 
                                 <LinkCommandItem
-                                    icon={BackpackIcon}
+                                    src="/tapetv.png"
                                     title="tape.tv"
                                     onMouseEnter={handleMouseEnter}
                                     onFocus={handleFocus}
@@ -196,14 +196,15 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                             <>
                                 {DOCK_ITEMS.map((item) => {
                                     return (
-                                        <ExternalLinkCommandItem
+                                        <LinkCommandItem
                                             key={item.title}
-                                            icon={StackIcon}
+                                            src={item.src}
                                             title={item.title}
                                             onMouseEnter={handleMouseEnter}
                                             onFocus={handleFocus}
                                             link={item.link}
                                             onClick={onClickOutside}
+                                            isExternal
                                         />
                                     );
                                 })}
