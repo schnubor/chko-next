@@ -109,6 +109,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                         <CommandItem
                                             icon={GitHubLogoIcon}
                                             title="Github"
+                                            link="https://github.com/schnubor"
                                             isInGroup
                                             onMouseEnter={handleMouseEnter}
                                             onFocus={handleFocus}
@@ -117,6 +118,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                         <CommandItem
                                             icon={TwitterLogoIcon}
                                             title="Twitter"
+                                            link="https://twitter.com/schnubor"
                                             isInGroup
                                             onMouseEnter={handleMouseEnter}
                                             onFocus={handleFocus}
@@ -125,6 +127,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                         <CommandItem
                                             icon={LinkedInLogoIcon}
                                             title="LinkedIn"
+                                            link="https://www.linkedin.com/in/christian-kornd%C3%B6rfer-8802045b/"
                                             isInGroup
                                             onMouseEnter={handleMouseEnter}
                                             onFocus={handleFocus}
