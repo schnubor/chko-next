@@ -31,7 +31,7 @@ export const Clock = () => {
             <span suppressHydrationWarning>
                 {time.getHours()}
                 <span className={tick ? 'opacity-100' : 'opacity-0'}>:</span>
-                {time.getMinutes()}
+                {(time.getMinutes() < 10 ? '0' : '') + time.getMinutes()}
             </span>
         </>
     );
