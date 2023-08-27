@@ -18,7 +18,7 @@ export const Work = () => {
                         alt="Perspective"
                         width={32}
                         height={32}
-                        className="group-hover:scale-105 origin-top-left transition duration-200 ease-out"
+                        className="origin-top-left transition duration-200 ease-out group-hover:scale-105"
                     />
                 </WorkTile>
                 <WorkTile
@@ -27,7 +27,7 @@ export const Work = () => {
                     link="/styla"
                     className="group"
                 >
-                    <div className="h-6 group-hover:scale-105 origin-top-left transition duration-200 ease-out">
+                    <div className="h-6 origin-top-left transition duration-200 ease-out group-hover:scale-105">
                         <svg
                             className="text-stone-900 dark:text-neutral-300"
                             height="100%"
@@ -70,7 +70,7 @@ export const Work = () => {
                     link="/tapetv"
                     className="group"
                 >
-                    <div className="h-6 group-hover:scale-105 origin-top-left transition duration-200 ease-out">
+                    <div className="h-6 origin-top-left transition duration-200 ease-out group-hover:scale-105">
                         <svg
                             height="100%"
                             viewBox="0 0 602 152"

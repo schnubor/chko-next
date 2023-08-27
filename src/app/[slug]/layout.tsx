@@ -14,7 +14,7 @@ const Layout: FC<Props> = ({ children }) => (
     <main className="mt-12">
         <Header>
             <a href="/">
-                <button className="py-2 pr-2 group flex items-center text-sm text-stone-500 hover:text-stone-900 transition dark:text-neutral-400 dark:hover:text-neutral-300">
+                <button className="group flex items-center py-2 pr-2 text-sm text-stone-500 transition hover:text-stone-900 dark:text-neutral-400 dark:hover:text-neutral-300">
                     <ArrowLeftIcon />
                     <span className="ml-2 transition-all duration-500 ease-out group-hover:ml-3">
                         Home

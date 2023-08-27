@@ -15,7 +15,7 @@ interface Props {
 export const WorkTile: FC<Props> = ({ children, title, description, className, link }) => {
     return (
         <Link href={link} className={className}>
-            <div className="relative group rounded-lg bg-stone-300 p-4 dark:bg-neutral-800">
+            <div className="group relative rounded-lg bg-stone-300 p-4 dark:bg-neutral-800">
                 {children}
                 <div className="mt-6">
                     <h3 className="font-semibold">{title}</h3>
@@ -24,7 +24,7 @@ export const WorkTile: FC<Props> = ({ children, title, description, className, l
                     </span>
                 </div>
 
-                <ArrowTopRightIcon className="group-hover:scale-100 scale-0 transition ease-out duration-200 origin-top-right absolute right-2 top-2 w-5 h-5" />
+                <ArrowTopRightIcon className="absolute right-2 top-2 h-5 w-5 origin-top-right scale-0 transition duration-200 ease-out group-hover:scale-100" />
             </div>
         </Link>
     );

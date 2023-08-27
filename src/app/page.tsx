@@ -23,7 +23,7 @@ export default function Home() {
                 I design, build and ship web applications since 2008 and enjoy helping enthusiastic
                 people bringing their ideas to life. Less, but better. Currently at{' '}
                 <a
-                    className="font-semibold bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent outline-none transition animate-gradient-x"
+                    className="animate-gradient-x bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text font-semibold text-transparent outline-none transition"
                     href="https://perspective.co"
                     target="_blank"
                     rel="noopener"
@@ -32,7 +32,7 @@ export default function Home() {
                 </a>
             </p>
 
-            <div className="flex items-center text-xs text-stone-500 dark:text-neutral-500 mt-2">
+            <div className="mt-2 flex items-center text-xs text-stone-500 dark:text-neutral-500">
                 <DrawingPinIcon className="mr-2 inline" /> Berlin ·{' '}
                 <ClockIcon className="mx-2 inline" /> {format(new Date(), 'HH:mm')}
             </div>
