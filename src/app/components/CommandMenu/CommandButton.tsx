@@ -37,7 +37,7 @@ export const CommandButton: FC<Props> = ({}) => {
                 <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                         <button
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-xl text-stone-50"
+                            className="fixed bottom-10 right-10 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-xl text-stone-50 shadow-lg sm:static sm:bottom-auto sm:right-auto sm:shadow-none"
                             onClick={() => setOpen(true)}
                         >
                             ⌘

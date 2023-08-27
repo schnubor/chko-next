@@ -19,7 +19,7 @@ export default function Home() {
             <section className="mt-12 text-lg leading-relaxed">
                 <p>
                     I design, build and ship web applications since 2008 and enjoy helping
-                    enthusiastic people bringing their ideas to life. Less, but better.
+                    enthusiastic people bringing their ideas to life with less, but better.
                 </p>
 
                 <p className="mt-2">
