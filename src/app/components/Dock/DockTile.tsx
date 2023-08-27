@@ -24,7 +24,7 @@ export const DockTile: FC<Props> = ({ title, src, link }) => {
                                 width={50}
                                 height={50}
                                 alt={title}
-                                className="transition-transform duration-300 ease-out group-hover:scale-110"
+                                className="transition-transform duration-300 ease-out  group-hover:scale-110"
                             />
                         </div>
                     </a>

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Command } from 'carloslfu-cmdk-internal';
 
 // UI
-import { ChevronRightIcon } from '@radix-ui/react-icons';
+import { ArrowTopRightIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
 // Types
 import type {
@@ -46,6 +46,9 @@ export const CommandItem: FC<Props> = ({
             />{' '}
             <span className="ml-4">{title}</span>
             {hasSubmenu && <ChevronRightIcon className="ml-auto mr-4" />}
+            {link && (
+                <ArrowTopRightIcon className="ml-auto mr-4 origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100" />
+            )}
         </>
     );
 
@@ -56,7 +59,7 @@ export const CommandItem: FC<Props> = ({
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-neutral-300"
+                    className="group/link flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-neutral-300"
                 >
                     {content}
                 </a>

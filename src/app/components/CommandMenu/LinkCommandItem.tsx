@@ -35,14 +35,16 @@ export const LinkCommandItem: FC<Props> = ({
         >
             <Image src={src} alt={title} width={20} height={20} />
             <span className="ml-4">{title}</span>
-            {isExternal && <ArrowTopRightIcon className="ml-auto" />}
+            {isExternal && (
+                <ArrowTopRightIcon className="ml-auto origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100" />
+            )}
         </div>
     );
 
     return (
         <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
             {isExternal ? (
-                <a href={link} target="_blank" rel="noopener noreferrer">
+                <a href={link} target="_blank" rel="noopener noreferrer" className="group/link">
                     {content}
                 </a>
             ) : (
