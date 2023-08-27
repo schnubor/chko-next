@@ -4,6 +4,7 @@
 
 html {
     @apply bg-stone-200;
+    @apply antialiased;
 }
 
 html.dark {

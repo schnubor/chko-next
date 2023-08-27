@@ -5,15 +5,18 @@ import { ALLOWED_PAGES } from '../constants';
 // UI
 import Image from 'next/image';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import { mdxComponents } from '@/app/[slug]/components/MdxComponents';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API as string);
 
 interface Work {
     headline: string;
+    role: string;
     content: string;
     icon: {
         url: string;
     };
+    stack: string[];
 }
 
 const fetchWork = async (slug: string) => {
@@ -21,6 +24,7 @@ const fetchWork = async (slug: string) => {
         `query WorkPageQuery($slug: String!) {
           work(where: { slug: $slug }) {
             headline
+            role
             content
             icon {
                 url
@@ -49,13 +53,22 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
     return (
         <>
             <div className="flex items-center space-x-4">
-                <Image src={work.icon.url} width={24} height={24} alt={work.headline} />
+                <Image
+                    src={work.icon.url}
+                    width={36}
+                    height={36}
+                    alt={work.headline}
+                    className="rounded-md"
+                />
 
-                <h1 className="font-semibold">{work.headline}</h1>
+                <div>
+                    <h1 className="font-semibold">{work.headline}</h1>
+                    <h2 className="text-xs text-stone-500 dark:text-neutral-500">{work.role}</h2>
+                </div>
             </div>
 
             <section className="mt-6 text-sm">
-                <ReactMarkdown>{work.content}</ReactMarkdown>
+                <ReactMarkdown components={mdxComponents}>{work.content}</ReactMarkdown>
             </section>
         </>
     );
