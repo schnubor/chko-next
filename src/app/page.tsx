@@ -9,7 +9,7 @@ export default function Home() {
         <>
             <Header>
                 <div className="flex-col">
-                    <h1 className="font-semibold">Christian Korndörfer</h1>
+                    <h1 className="text-lg font-semibold">Christian Korndörfer</h1>
                     <h2 className="text-xs text-stone-500 dark:text-neutral-500">
                         Senior Software Engineer
                     </h2>
