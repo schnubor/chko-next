@@ -6,6 +6,7 @@ import { ALLOWED_PAGES } from '../constants';
 import Image from 'next/image';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { mdxComponents } from '@/app/[slug]/components/MdxComponents';
+import { TechStack } from '@/app/[slug]/components/TechStack';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API as string);
 
@@ -26,6 +27,7 @@ const fetchWork = async (slug: string) => {
             headline
             role
             content
+            stack
             icon {
                 url
             }
@@ -66,6 +68,8 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
                     <h2 className="text-xs text-stone-500 dark:text-neutral-500">{work.role}</h2>
                 </div>
             </div>
+
+            <TechStack stack={work.stack} />
 
             <section className="mt-6 text-sm">
                 <ReactMarkdown components={mdxComponents}>{work.content}</ReactMarkdown>

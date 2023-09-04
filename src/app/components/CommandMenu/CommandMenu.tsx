@@ -117,7 +117,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                         />
                                         <CommandItem
                                             icon={TwitterLogoIcon}
-                                            title="Twitter"
+                                            title="Twitter / X"
                                             link="https://twitter.com/schnubor"
                                             isInGroup
                                             onMouseEnter={handleMouseEnter}

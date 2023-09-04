@@ -1,4 +1,4 @@
-import { ArrowTopRightIcon } from '@radix-ui/react-icons';
+import { ArrowTopRightIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
 // Types
@@ -24,7 +24,7 @@ export const WorkTile: FC<Props> = ({ children, title, description, className, l
                     </span>
                 </div>
 
-                <ArrowTopRightIcon className="absolute right-2 top-2 h-5 w-5 origin-top-right scale-0 transition duration-200 ease-out group-hover:scale-100" />
+                <ArrowRightIcon className="absolute right-4 top-4 h-5 w-5 origin-left scale-0 text-stone-500 transition duration-200 ease-out group-hover:scale-100 dark:text-neutral-500" />
             </div>
         </Link>
     );
