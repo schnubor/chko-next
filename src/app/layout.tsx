@@ -9,11 +9,26 @@ import { Footer } from '@/app/components/Footer';
 // Types
 import type { ReactNode } from 'react';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin-ext'] });
 
 export const metadata = {
     title: 'Christian Korndörfer',
     description: 'Senior Software Engineer',
+    openGraph: {
+        title: 'Christian Korndörfer',
+        description: 'Senior Software Engineer',
+        url: 'https://chko.org',
+        siteName: 'chko.org',
+        images: [
+            {
+                url: 'https://chko.org/ogimage.png',
+                width: 1200,
+                height: 600,
+            },
+        ],
+        locale: 'en_US',
+        type: 'website',
+    },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
