@@ -28,15 +28,16 @@ export const Clock = () => {
         }
     }, [tick]);
 
-    console.log('render');
-
     return (
         <>
             <ClockIcon className="mr-2 inline" />
-            <span suppressHydrationWarning>
+            <span>
                 {formatInTimeZone(time, 'Europe/Berlin', 'HH')}
                 <span className={tick ? 'opacity-100' : 'opacity-0'}>:</span>
                 {formatInTimeZone(time, 'Europe/Berlin', 'mm')}
+                <span className="opacity-0">
+                    {formatInTimeZone(time, 'Europe/Berlin', 'HH:mm:ss')}
+                </span>
             </span>
         </>
     );
