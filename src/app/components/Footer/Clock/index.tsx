@@ -9,13 +9,20 @@ import { formatInTimeZone } from 'date-fns-tz';
 // Hooks
 import { useEffect, useState } from 'react';
 
-export const Clock = () => {
-    const [time, setTime] = useState(Date.now());
+// Types
+import type { FC } from 'react';
+
+export interface Props {
+    time: number;
+}
+
+export const Clock: FC<Props> = ({ time: initial }) => {
+    const [time, setTime] = useState(new Date(initial));
     const [tick, setTick] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setTime(Date.now());
+            setTime(new Date());
             setTick(true);
         }, 1000);
 
@@ -31,13 +38,10 @@ export const Clock = () => {
     return (
         <>
             <ClockIcon className="mr-2 inline" />
-            <span>
+            <span className="tabular-nums">
                 {formatInTimeZone(time, 'Europe/Berlin', 'HH')}
                 <span className={tick ? 'opacity-100' : 'opacity-0'}>:</span>
                 {formatInTimeZone(time, 'Europe/Berlin', 'mm')}
-                <span className="opacity-0">
-                    {formatInTimeZone(time, 'Europe/Berlin', 'HH:mm:ss')}
-                </span>
             </span>
         </>
     );
