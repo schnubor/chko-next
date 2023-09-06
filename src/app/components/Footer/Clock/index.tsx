@@ -3,16 +3,19 @@
 // UI
 import { ClockIcon } from '@radix-ui/react-icons';
 
+// Utils
+import { formatInTimeZone } from 'date-fns-tz';
+
 // Hooks
 import { useEffect, useState } from 'react';
 
 export const Clock = () => {
-    const [time, setTime] = useState(new Date());
+    const [time, setTime] = useState(Date.now());
     const [tick, setTick] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setTime(new Date());
+            setTime(Date.now());
             setTick(true);
         }, 1000);
 
@@ -29,9 +32,9 @@ export const Clock = () => {
         <>
             <ClockIcon className="mr-2 inline" />
             <span suppressHydrationWarning>
-                {time.getHours()}
+                {formatInTimeZone(time, 'Europe/Berlin', 'HH')}
                 <span className={tick ? 'opacity-100' : 'opacity-0'}>:</span>
-                {(time.getMinutes() < 10 ? '0' : '') + time.getMinutes()}
+                {formatInTimeZone(time, 'Europe/Berlin', 'mm')}
             </span>
         </>
     );
