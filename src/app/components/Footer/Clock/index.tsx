@@ -28,6 +28,8 @@ export const Clock = () => {
         }
     }, [tick]);
 
+    console.log('render');
+
     return (
         <>
             <ClockIcon className="mr-2 inline" />
