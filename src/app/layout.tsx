@@ -21,7 +21,7 @@ export const metadata = {
         siteName: 'chko.org',
         images: [
             {
-                url: 'https://chko.org/ogimage.png',
+                url: 'https://chko.org/ogimage.jpg',
                 width: 1200,
                 height: 600,
             },
