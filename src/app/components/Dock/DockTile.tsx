@@ -18,7 +18,7 @@ export const DockTile: FC<Props> = ({ title, src, link }) => {
             <Tooltip.Root delayDuration={0}>
                 <Tooltip.Trigger asChild>
                     <a href={link} target="_blank" rel="noopener noreferrer">
-                        <div className="group flex items-center justify-center rounded-lg bg-stone-300 p-2 dark:bg-neutral-800">
+                        <div className="group flex items-center justify-center rounded-lg bg-stone-300 p-2 transition-all hover:bg-stone-300/70 dark:bg-neutral-800 dark:hover:bg-neutral-800/70">
                             <Image
                                 src={src}
                                 width={50}

@@ -3,16 +3,27 @@ import { Dock } from '@/app/components/Dock';
 import { Work } from '@/app/components/Work';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import Image from 'next/image';
 
 export default function Home() {
     return (
         <>
             <Header>
-                <div className="flex-col">
-                    <h1 className="text-lg font-semibold">Christian Korndörfer</h1>
-                    <h2 className="text-xs text-stone-500 dark:text-neutral-500">
-                        Senior Software Engineer
-                    </h2>
+                <div className="flex items-center space-x-4">
+                    <Image
+                        src="/avatar.jpg"
+                        alt="Christian Korndörfer"
+                        width={64}
+                        height={64}
+                        className="rounded-full border-2 border-stone-400/50 dark:border-neutral-700/50"
+                        quality={100}
+                    />
+                    <div className="flex-col">
+                        <h1 className="text-lg font-semibold">Christian Korndörfer</h1>
+                        <h2 className="text-xs text-stone-500 dark:text-neutral-500">
+                            Senior Software Engineer
+                        </h2>
+                    </div>
                 </div>
             </Header>
 

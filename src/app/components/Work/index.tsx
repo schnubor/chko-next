@@ -13,13 +13,7 @@ export const Work = () => {
                     description="Lead Frontend Engineer, 2017 - today"
                     className="group col-span-1 sm:col-span-2"
                 >
-                    <Image
-                        src="/perspective.png"
-                        alt="Perspective"
-                        width={32}
-                        height={32}
-                        className="origin-top-left transition duration-200 ease-out group-hover:scale-105"
-                    />
+                    <Image src="/perspective.png" alt="Perspective" width={32} height={32} />
                 </WorkTile>
                 <WorkTile
                     title="styla.com"
@@ -27,7 +21,7 @@ export const Work = () => {
                     link="/styla"
                     className="group"
                 >
-                    <div className="h-6 origin-top-left transition duration-200 ease-out group-hover:scale-105">
+                    <div className="h-6">
                         <svg
                             className="text-stone-900 dark:text-neutral-300"
                             height="100%"
@@ -70,7 +64,7 @@ export const Work = () => {
                     link="/tapetv"
                     className="group"
                 >
-                    <div className="h-6 origin-top-left transition duration-200 ease-out group-hover:scale-105">
+                    <div className="h-6">
                         <svg
                             height="100%"
                             viewBox="0 0 602 152"
