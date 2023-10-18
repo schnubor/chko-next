@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <html lang="en" suppressHydrationWarning>
             <body className={inter.className}>
                 <svg
-                    className="pointer-events-none fixed inset-0 isolate z-50 opacity-50 mix-blend-soft-light"
+                    className="pointer-events-none fixed inset-0 isolate z-50 opacity-30 mix-blend-soft-light"
                     width="100%"
                     height="100%"
                 >
