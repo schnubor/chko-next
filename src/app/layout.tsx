@@ -1,10 +1,12 @@
 // Utils
+import clsx from 'clsx';
 import { Providers } from '@/app/providers';
 
 // UI
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { Footer } from '@/app/components/Footer';
+import { Rays } from '@/app/components/Rays';
 
 // Types
 import type { ReactNode } from 'react';
@@ -34,9 +36,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={inter.className}>
+            <body
+                className={clsx(inter.className, 'selection:bg-orange-500/90 selection:text-white')}
+            >
+                <Rays />
                 <svg
-                    className="pointer-events-none fixed inset-0 isolate z-50 opacity-30 mix-blend-soft-light"
+                    className="pointer-events-none fixed inset-0 isolate z-50 opacity-40 mix-blend-soft-light"
                     width="100%"
                     height="100%"
                 >
