@@ -71,7 +71,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
 
             <TechStack stack={work.stack} />
 
-            <section className="mt-6 text-sm">
+            <section className="mt-6">
                 <ReactMarkdown components={mdxComponents}>{work.content}</ReactMarkdown>
             </section>
         </>
