@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation';
 import { ALLOWED_PAGES } from '../constants';
 
 // UI
+import { Suspense } from 'react';
 import Image from 'next/image';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { mdxComponents } from '@/app/[slug]/components/MdxComponents';
 import { TechStack } from '@/app/[slug]/components/TechStack';
+import { Skeleton } from '@/app/[slug]/components/Skeleton';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API as string);
 
@@ -53,7 +55,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
     }
 
     return (
-        <>
+        <Suspense fallback={<Skeleton />}>
             <div className="flex items-center space-x-4">
                 <Image
                     src={work.icon.url}
@@ -74,7 +76,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
             <section className="mt-6">
                 <ReactMarkdown components={mdxComponents}>{work.content}</ReactMarkdown>
             </section>
-        </>
+        </Suspense>
     );
 };
 
