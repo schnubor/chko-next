@@ -22,14 +22,9 @@ export const DOCK_ITEMS = [
         link: 'https://arc.net',
     },
     {
-        title: 'Figma',
-        src: '/dock/figma.webp',
-        link: 'https://www.figma.com',
-    },
-    {
-        title: 'Notion',
-        src: '/dock/notion.webp',
-        link: 'https://www.notion.so',
+        title: 'Steam',
+        src: '/dock/steam.webp',
+        link: 'https://steampowered.com/',
     },
     {
         title: 'Slack',
@@ -37,8 +32,13 @@ export const DOCK_ITEMS = [
         link: 'https://slack.com',
     },
     {
-        title: 'Cron',
-        src: '/dock/cron.webp',
-        link: 'https://cron.app',
+        title: 'Notion',
+        src: '/dock/notion.webp',
+        link: 'https://www.notion.so',
+    },
+    {
+        title: 'Notion Calendar',
+        src: '/dock/notioncalendar.webp',
+        link: 'https://www.notion.so/product/calendar',
     },
 ];
