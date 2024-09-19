@@ -116,15 +116,6 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                             onClick={onClickOutside}
                                         />
                                         <CommandItem
-                                            icon={TwitterLogoIcon}
-                                            title="Twitter / X"
-                                            link="https://twitter.com/schnubor"
-                                            isInGroup
-                                            onMouseEnter={handleMouseEnter}
-                                            onFocus={handleFocus}
-                                            onClick={onClickOutside}
-                                        />
-                                        <CommandItem
                                             icon={LinkedInLogoIcon}
                                             title="LinkedIn"
                                             link="https://www.linkedin.com/in/christian-kornd%C3%B6rfer-8802045b/"

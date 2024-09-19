@@ -5,7 +5,7 @@ import { ALLOWED_PAGES } from '../constants';
 // UI
 import { Suspense } from 'react';
 import Image from 'next/image';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import Markdown from 'react-markdown';
 import { mdxComponents } from '@/app/[slug]/components/MdxComponents';
 import { TechStack } from '@/app/[slug]/components/TechStack';
 import { Skeleton } from '@/app/[slug]/components/Skeleton';
@@ -74,7 +74,7 @@ const WorkPage = async ({ params }: { params: { slug: string } }) => {
             <TechStack stack={work.stack} />
 
             <section className="mt-6">
-                <ReactMarkdown components={mdxComponents}>{work.content}</ReactMarkdown>
+                <Markdown components={mdxComponents}>{work.content}</Markdown>
             </section>
         </Suspense>
     );

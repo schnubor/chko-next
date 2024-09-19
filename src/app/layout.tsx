@@ -5,7 +5,7 @@ import { Providers } from '@/app/providers';
 // UI
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { GeistSans } from 'geist/font';
+import { GeistSans } from 'geist/font/sans';
 import { Footer } from '@/app/components/Footer';
 import { Rays } from '@/app/components/Rays';
 

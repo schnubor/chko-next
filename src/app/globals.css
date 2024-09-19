@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    @apply bg-stone-200;
+    @apply bg-stone-50;
     @apply antialiased;
 }
 
