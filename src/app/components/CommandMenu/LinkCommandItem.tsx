@@ -1,17 +1,14 @@
-// Utils
-import { Command } from 'carloslfu-cmdk-internal';
+import { Command } from 'cmdk';
 import Link from 'next/link';
 
-// UI
 import { ArrowTopRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 
-// Types
-import type { FC, MouseEvent, FocusEventHandler } from 'react';
+import type { FC } from 'react';
+import { router } from 'next/client';
+import { useRouter } from 'next/navigation';
 
 interface Props {
-    onMouseEnter: (event: MouseEvent<HTMLElement>) => void;
-    onFocus: FocusEventHandler<HTMLElement>;
     link: string;
     title: string;
     src: string;
@@ -19,15 +16,19 @@ interface Props {
     isExternal?: boolean;
 }
 
-export const LinkCommandItem: FC<Props> = ({
-    onMouseEnter,
-    onFocus,
-    link,
-    title,
-    src,
-    onClick,
-    isExternal,
-}) => {
+export const LinkCommandItem: FC<Props> = ({ link, title, src, onClick, isExternal }) => {
+    const { push } = useRouter();
+
+    const handleSelect = () => {
+        if (isExternal) {
+            window.open(link, '_blank');
+        } else {
+            push(link);
+        }
+
+        onClick();
+    };
+
     const content = (
         <div
             className="flex h-10 w-full cursor-pointer items-center rounded-lg px-4 text-sm text-stone-800 outline-none dark:text-neutral-300"
@@ -42,7 +43,10 @@ export const LinkCommandItem: FC<Props> = ({
     );
 
     return (
-        <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
+        <Command.Item
+            className="rounded-lg outline-none data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
+            onSelect={handleSelect}
+        >
             {isExternal ? (
                 <a href={link} target="_blank" rel="noopener noreferrer" className="group/link">
                     {content}

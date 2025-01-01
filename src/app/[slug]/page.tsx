@@ -43,7 +43,8 @@ const fetchWork = async (slug: string) => {
     return work;
 };
 
-const WorkPage = async ({ params }: { params: { slug: string } }) => {
+const WorkPage = async (props: { params: Promise<{ slug: string }> }) => {
+    const params = await props.params;
     if (!ALLOWED_PAGES.includes(params.slug)) {
         return notFound();
     }

@@ -10,7 +10,7 @@ interface Props {
 
 export const Breadcrumb: FC<Props> = ({ activeMenu, onPillClick }) => {
     return (
-        <div className="space-x-2 p-2">
+        <div className="mb-2 space-x-2">
             <Pill name="Home" onClick={() => onPillClick('main')} />
             {activeMenu === 'work' && <Pill name="Work" />}
             {activeMenu === 'dock' && <Pill name="Dock" />}

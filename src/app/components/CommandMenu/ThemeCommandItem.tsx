@@ -1,5 +1,5 @@
 // Utils
-import { Command } from 'carloslfu-cmdk-internal';
+import { Command } from 'cmdk';
 
 // Utils
 import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';
@@ -7,17 +7,27 @@ import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';
 // Types
 import type { FC, MouseEvent, FocusEventHandler } from 'react';
 import { Theme } from '@/app/types';
+import { useTheme } from 'next-themes';
 
 interface Props {
-    onMouseEnter: (event: MouseEvent<HTMLElement>) => void;
-    onFocus: FocusEventHandler<HTMLElement>;
     theme: Theme;
     onClick: () => void;
 }
 
-export const ThemeCommandItem: FC<Props> = ({ onMouseEnter, onFocus, theme, onClick }) => {
+export const ThemeCommandItem: FC<Props> = ({ theme, onClick }) => {
+    const { setTheme } = useTheme();
+
+    const handleSelect = () => {
+        setTheme(theme);
+
+        onClick();
+    };
+
     return (
-        <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
+        <Command.Item
+            className="rounded-lg outline-none data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
+            onSelect={handleSelect}
+        >
             <ThemeSwitch theme={theme} onClick={onClick} />
         </Command.Item>
     );

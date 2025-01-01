@@ -1,50 +1,25 @@
-// Utils
-import clsx from 'clsx';
-import { Command } from 'carloslfu-cmdk-internal';
+import { Command } from 'cmdk';
+import { cn } from '@/utils/cn';
 
-// UI
 import { ArrowTopRightIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
-// Types
-import type {
-    FC,
-    ForwardRefExoticComponent,
-    RefAttributes,
-    MouseEvent,
-    FocusEventHandler,
-} from 'react';
+import type { FC, ForwardRefExoticComponent, RefAttributes, JSX, KeyboardEvent } from 'react';
 import type { IconProps } from '@radix-ui/react-icons/dist/types';
 
 interface Props {
-    icon: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
+    icon:
+        | ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>
+        | (({ className }: { className?: string }) => JSX.Element);
     title: string;
-    isInGroup?: boolean;
-    onMouseEnter: (event: MouseEvent<HTMLElement>) => void;
-    onFocus: FocusEventHandler<HTMLElement>;
     onClick: () => void;
     hasSubmenu?: boolean;
     link?: string;
 }
 
-export const CommandItem: FC<Props> = ({
-    icon: Icon,
-    title,
-    isInGroup,
-    onMouseEnter,
-    onClick,
-    onFocus,
-    hasSubmenu,
-    link,
-}) => {
+export const CommandItem: FC<Props> = ({ icon: Icon, title, onClick, hasSubmenu, link }) => {
     const content = (
         <>
-            <Icon
-                className={clsx('h4- w-4', {
-                    'ml-2': isInGroup,
-                    'ml-4': !isInGroup,
-                })}
-            />{' '}
-            <span className="ml-4">{title}</span>
+            <Icon className="ml-4 size-4" /> <span className="ml-4">{title}</span>
             {hasSubmenu && <ChevronRightIcon className="ml-auto mr-4" />}
             {link && (
                 <ArrowTopRightIcon className="ml-auto mr-4 origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100" />
@@ -52,8 +27,19 @@ export const CommandItem: FC<Props> = ({
         </>
     );
 
+    const handleSelect = () => {
+        if (link) {
+            window.open(link, '_blank');
+        }
+
+        onClick();
+    };
+
     return (
-        <Command.Item onMouseEnter={onMouseEnter} onFocus={onFocus} className="outline-none">
+        <Command.Item
+            onSelect={handleSelect}
+            className="rounded-lg outline-none data-[selected=true]:bg-stone-300 dark:focus:bg-neutral-800 dark:data-[selected=true]:bg-neutral-800"
+        >
             {link ? (
                 <a
                     href={link}

@@ -12,9 +12,9 @@ export const DOCK_ITEMS = [
         link: 'https://www.linear.app',
     },
     {
-        title: 'Warp',
-        src: '/dock/warp.webp',
-        link: 'https://warp.dev',
+        title: 'Ghostty',
+        src: '/dock/ghostty.webp',
+        link: 'https://ghostty.org/',
     },
     {
         title: 'Arc',

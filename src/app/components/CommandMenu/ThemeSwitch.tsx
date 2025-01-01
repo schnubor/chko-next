@@ -57,7 +57,7 @@ const ThemeSwitch: FC<Props> = ({ theme, onClick }) => {
             onClick={handleClick}
             className="flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-neutral-300"
         >
-            <Icon className="ml-2 h-4 w-4" /> <span className="ml-4">{text}</span>
+            <Icon className="ml-4 size-4" /> <span className="ml-4">{text}</span>
         </button>
     );
 };
