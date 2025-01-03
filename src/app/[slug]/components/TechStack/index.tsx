@@ -30,7 +30,7 @@ export const TechStack: FC<Props> = ({ stack }) => {
                 return (
                     <span
                         key={tech}
-                        className="mb-2 mr-2 flex items-center rounded-lg bg-stone-300 px-2 py-1 text-xs text-stone-900 dark:bg-neutral-800 dark:text-neutral-400"
+                        className="mb-2 mr-2 flex items-center rounded-lg bg-stone-200 px-2 py-1 text-xs text-stone-900 dark:bg-neutral-800 dark:text-neutral-400"
                     >
                         <Image
                             src={`/icons/${tech}.svg`}
