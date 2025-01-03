@@ -17,6 +17,9 @@ module.exports = {
                 fadeOut: 'fadeOut 0.2s ease-out',
                 'gradient-x': 'gradient-x 15s ease infinite',
             },
+            boxShadow: {
+                tile: '0 16px 24px -16px rgb(0 0 0 / 0.1)',
+            },
             keyframes: {
                 slideRightAndFade: {
                     '0%': {
