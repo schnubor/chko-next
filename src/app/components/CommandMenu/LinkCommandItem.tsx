@@ -1,22 +1,32 @@
 import { Command } from 'cmdk';
 import Link from 'next/link';
 
+import { useRouter } from 'next/navigation';
 import { ArrowTopRightIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 
-import type { FC } from 'react';
-import { router } from 'next/client';
-import { useRouter } from 'next/navigation';
+import type { FC, ForwardRefExoticComponent, JSX, RefAttributes } from 'react';
+import type { IconProps } from '@radix-ui/react-icons/dist/types';
 
 interface Props {
     link: string;
     title: string;
-    src: string;
+    src?: string;
+    icon?:
+        | ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>
+        | (({ className }: { className?: string }) => JSX.Element);
     onClick: () => void;
     isExternal?: boolean;
 }
 
-export const LinkCommandItem: FC<Props> = ({ link, title, src, onClick, isExternal }) => {
+export const LinkCommandItem: FC<Props> = ({
+    link,
+    title,
+    src,
+    icon: Icon,
+    onClick,
+    isExternal,
+}) => {
     const { push } = useRouter();
 
     const handleSelect = () => {
@@ -34,10 +44,14 @@ export const LinkCommandItem: FC<Props> = ({ link, title, src, onClick, isExtern
             className="flex h-10 w-full cursor-pointer items-center rounded-lg px-4 text-sm text-stone-800 outline-none dark:text-neutral-300"
             onClick={onClick}
         >
-            <Image src={src} alt={title} width={20} height={20} />
+            {src ? (
+                <Image src={src} alt={title} width={20} height={20} />
+            ) : Icon ? (
+                <Icon className="size-4" />
+            ) : null}
             <span className="ml-4">{title}</span>
             {isExternal && (
-                <ArrowTopRightIcon className="ml-auto origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100" />
+                <ArrowTopRightIcon className="ml-auto size-4 origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100 dark:text-orange-500" />
             )}
         </div>
     );

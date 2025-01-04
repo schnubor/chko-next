@@ -22,7 +22,7 @@ export const CommandItem: FC<Props> = ({ icon: Icon, title, onClick, hasSubmenu,
             <Icon className="ml-4 size-4" /> <span className="ml-4">{title}</span>
             {hasSubmenu && <ChevronRightIcon className="ml-auto mr-4" />}
             {link && (
-                <ArrowTopRightIcon className="ml-auto mr-4 origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100" />
+                <ArrowTopRightIcon className="ml-auto mr-4 origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100 dark:text-orange-500" />
             )}
         </>
     );

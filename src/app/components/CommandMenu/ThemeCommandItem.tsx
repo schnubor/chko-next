@@ -1,17 +1,15 @@
-// Utils
 import { Command } from 'cmdk';
 
-// Utils
 import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';
 
-// Types
-import type { FC, MouseEvent, FocusEventHandler } from 'react';
 import { Theme } from '@/app/types';
 import { useTheme } from 'next-themes';
 
+import type { FC } from 'react';
+
 interface Props {
     theme: Theme;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
 export const ThemeCommandItem: FC<Props> = ({ theme, onClick }) => {
@@ -20,7 +18,7 @@ export const ThemeCommandItem: FC<Props> = ({ theme, onClick }) => {
     const handleSelect = () => {
         setTheme(theme);
 
-        onClick();
+        onClick?.();
     };
 
     return (

@@ -5,7 +5,13 @@ import { Command } from 'cmdk';
 
 // UI
 import { CommandItem } from './CommandItem';
-import { BackpackIcon, GitHubLogoIcon, LinkedInLogoIcon, StackIcon } from '@radix-ui/react-icons';
+import {
+    BackpackIcon,
+    GitHubLogoIcon,
+    HomeIcon,
+    LinkedInLogoIcon,
+    StackIcon,
+} from '@radix-ui/react-icons';
 import { ThemeCommandItem } from '@/app/components/CommandMenu/ThemeCommandItem';
 import { Breadcrumb } from './Breadcrumb';
 import { LinkCommandItem } from './LinkCommandItem';
@@ -57,6 +63,13 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
 
                         {activeMenu === 'main' && (
                             <>
+                                <LinkCommandItem
+                                    icon={HomeIcon}
+                                    title="Home"
+                                    link="/"
+                                    onClick={onClickOutside}
+                                />
+
                                 <CommandItem
                                     icon={BackpackIcon}
                                     title="Work"
@@ -103,18 +116,9 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
                                     className="mt-2 text-xs text-stone-500"
                                 >
                                     <div className="mt-2">
-                                        <ThemeCommandItem
-                                            onClick={onClickOutside}
-                                            theme={Theme.LIGHT}
-                                        />
-                                        <ThemeCommandItem
-                                            onClick={onClickOutside}
-                                            theme={Theme.DARK}
-                                        />
-                                        <ThemeCommandItem
-                                            onClick={onClickOutside}
-                                            theme={Theme.SYSTEM}
-                                        />
+                                        <ThemeCommandItem theme={Theme.LIGHT} />
+                                        <ThemeCommandItem theme={Theme.DARK} />
+                                        <ThemeCommandItem theme={Theme.SYSTEM} />
                                     </div>
                                 </Command.Group>
                             </>
