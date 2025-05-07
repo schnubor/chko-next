@@ -41,7 +41,7 @@ export const LinkCommandItem: FC<Props> = ({
 
     const content = (
         <div
-            className="flex h-10 w-full cursor-pointer items-center rounded-lg px-4 text-sm text-stone-800 outline-none dark:text-neutral-300"
+            className="flex h-10 w-full cursor-pointer items-center rounded-lg px-4 text-sm text-stone-800 outline-hidden dark:text-neutral-300"
             onClick={onClick}
         >
             {src ? (
@@ -58,7 +58,7 @@ export const LinkCommandItem: FC<Props> = ({
 
     return (
         <Command.Item
-            className="rounded-lg outline-none data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
+            className="rounded-lg outline-hidden data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
             onSelect={handleSelect}
         >
             {isExternal ? (

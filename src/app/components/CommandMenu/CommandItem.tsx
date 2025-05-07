@@ -38,21 +38,21 @@ export const CommandItem: FC<Props> = ({ icon: Icon, title, onClick, hasSubmenu,
     return (
         <Command.Item
             onSelect={handleSelect}
-            className="rounded-lg outline-none data-[selected=true]:bg-stone-300 dark:focus:bg-neutral-800 dark:data-[selected=true]:bg-neutral-800"
+            className="rounded-lg outline-hidden data-[selected=true]:bg-stone-300 dark:focus:bg-neutral-800 dark:data-[selected=true]:bg-neutral-800"
         >
             {link ? (
                 <a
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/link flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-neutral-300"
+                    className="group/link flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-hidden dark:text-neutral-300"
                 >
                     {content}
                 </a>
             ) : (
                 <button
                     onClick={onClick}
-                    className="flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-none dark:text-neutral-300"
+                    className="flex h-10 w-full cursor-pointer items-center rounded-lg text-sm text-stone-800 outline-hidden dark:text-neutral-300"
                 >
                     {content}
                 </button>

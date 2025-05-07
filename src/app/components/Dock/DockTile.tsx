@@ -3,16 +3,13 @@
 import Image from 'next/image';
 import * as Tooltip from '@radix-ui/react-tooltip';
 
-// Types
-import type { FC } from 'react';
-
 interface Props {
     title: string;
     src: string;
     link: string;
 }
 
-export const DockTile: FC<Props> = ({ title, src, link }) => {
+export const DockTile = ({ title, src, link }: Props) => {
     return (
         <Tooltip.Provider>
             <Tooltip.Root delayDuration={0}>
@@ -36,7 +33,7 @@ export const DockTile: FC<Props> = ({ title, src, link }) => {
                 </Tooltip.Trigger>
                 <Tooltip.Portal>
                     <Tooltip.Content
-                        className="data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade flex select-none items-center space-x-1 rounded-md bg-stone-800 p-2 text-xs leading-none text-stone-50 will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade dark:bg-neutral-800"
+                        className="data-[state=delayed-open]:data-[side=bottom]:animate-slide-up-and-fade data-[state=delayed-open]:data-[side=left]:animate-slide-right-and-fade data-[state=delayed-open]:data-[side=top]:animate-slide-down-and-fade flex items-center space-x-1 rounded-md bg-stone-800 p-2 text-xs leading-none text-stone-50 will-change-[transform,opacity] select-none dark:bg-neutral-800"
                         sideOffset={5}
                         side="bottom"
                     >

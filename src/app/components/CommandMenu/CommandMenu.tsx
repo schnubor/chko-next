@@ -49,13 +49,13 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
             open={open}
             onOpenChange={onOpenChange}
             label="Menu"
-            overlayClassName="fixed z-10 inset-0 size-screen animate-fadeIn data-[state='closed']:animate-fadeOut bg-stone-800/50 backdrop-blur-sm dark:bg-neutral-800/50 size-screen"
-            contentClassName="data-[state='closed']:animate-slideUpAndFadeOut z-20 group fixed inset-0 flex h-screen w-screen items-center justify-center [&_[cmdk-group-heading]]:px-2"
+            overlayClassName="fixed z-10 inset-0 size-screen animate-fade-in data-[state='closed']:animate-fade-out bg-stone-800/50 backdrop-blur-xs dark:bg-neutral-800/50 size-screen"
+            contentClassName="data-[state='closed']:animate-slide-up-and-fade-out z-20 group fixed inset-0 flex h-screen w-screen items-center justify-center [&_[cmdk-group-heading]]:px-2"
         >
             <DialogTitle className="sr-only">Menu</DialogTitle>
             <div className="w-80 p-4 sm:w-96">
                 <div
-                    className="relative w-full animate-slideDownAndFade rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
+                    className="animate-slide-down-and-fade relative w-full rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
                     ref={outsideClickRef}
                 >
                     <Command.List className="relative z-10 p-2">

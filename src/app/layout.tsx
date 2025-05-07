@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <rect width="100%" height="100%" filter="url(#pedroduarteisalegend)"></rect>
                 </svg>
                 <Providers>
-                    <main className="mx-auto max-w-screen-sm px-6 pb-32 text-stone-900 dark:text-neutral-300 sm:px-0">
+                    <main className="mx-auto max-w-(--breakpoint-sm) px-6 pb-32 text-stone-900 dark:text-neutral-300 sm:px-0">
                         {children}
 
                         <Footer />

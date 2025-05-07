@@ -28,7 +28,7 @@ export default function Home() {
                 <p className="mt-2">
                     Currently at{' '}
                     <a
-                        className="animate-gradient-x bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text font-semibold text-transparent outline-none transition focus-within:ring-2 focus-within:ring-blue-500"
+                        className="animate-gradient-x bg-linear-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text font-semibold text-transparent outline-hidden transition focus-within:ring-2 focus-within:ring-blue-500"
                         href="https://perspective.co"
                         target="_blank"
                         rel="noopener"
