@@ -110,9 +110,18 @@ export const CommandMenu = ({ open, onOpenChange, onClickOutside }: Props) => {
                                     className="mt-2 text-xs text-stone-600 dark:text-neutral-400"
                                 >
                                     <div className="mt-2">
-                                        <ThemeCommandItem theme={Theme.LIGHT} />
-                                        <ThemeCommandItem theme={Theme.DARK} />
-                                        <ThemeCommandItem theme={Theme.SYSTEM} />
+                                        <ThemeCommandItem
+                                            theme={Theme.LIGHT}
+                                            onClick={onClickOutside}
+                                        />
+                                        <ThemeCommandItem
+                                            theme={Theme.DARK}
+                                            onClick={onClickOutside}
+                                        />
+                                        <ThemeCommandItem
+                                            theme={Theme.SYSTEM}
+                                            onClick={onClickOutside}
+                                        />
                                     </div>
                                 </Command.Group>
                             </>
