@@ -2,7 +2,6 @@ import { GraphQLClient } from 'graphql-request';
 import { notFound } from 'next/navigation';
 import { ALLOWED_PAGES } from '../constants';
 
-// UI
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Markdown from 'react-markdown';
@@ -11,6 +10,35 @@ import { TechStack } from '@/app/[slug]/components/TechStack';
 import { Skeleton } from '@/app/[slug]/components/Skeleton';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API as string);
+
+interface Props {
+    params: Promise<{ slug: string }>;
+}
+
+export const generateMetadata = async (props: Props) => {
+    const params = await props.params;
+    const work = await fetchWork(params.slug);
+
+    return {
+        title: `${work.headline} | chko.org`,
+        description: work.role,
+        openGraph: {
+            title: `${work.headline} | chko.org`,
+            description: work.role,
+            url: `https://chko.org/${params.slug}`,
+            siteName: 'chko.org',
+            images: [
+                {
+                    url: 'https://chko.org/ogimage.jpg',
+                    width: 1200,
+                    height: 600,
+                },
+            ],
+            locale: 'en_US',
+            type: 'website',
+        },
+    };
+};
 
 interface Work {
     headline: string;
@@ -43,7 +71,7 @@ const fetchWork = async (slug: string) => {
     return work;
 };
 
-const WorkPage = async (props: { params: Promise<{ slug: string }> }) => {
+const WorkPage = async (props: Props) => {
     const params = await props.params;
     if (!ALLOWED_PAGES.includes(params.slug)) {
         return notFound();
@@ -58,17 +86,11 @@ const WorkPage = async (props: { params: Promise<{ slug: string }> }) => {
     return (
         <Suspense fallback={<Skeleton />}>
             <div className="flex items-center space-x-4">
-                <Image
-                    src={work.icon.url}
-                    width={36}
-                    height={36}
-                    alt={work.headline}
-                    className="rounded-md"
-                />
+                <Image src={work.icon.url} width={36} height={36} alt="" className="rounded-md" />
 
                 <div>
                     <h1 className="font-semibold">{work.headline}</h1>
-                    <h2 className="text-xs text-stone-500 dark:text-neutral-500">{work.role}</h2>
+                    <h2 className="text-xs text-stone-500 dark:text-neutral-400">{work.role}</h2>
                 </div>
             </div>
 

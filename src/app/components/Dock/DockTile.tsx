@@ -17,17 +17,22 @@ export const DockTile: FC<Props> = ({ title, src, link }) => {
         <Tooltip.Provider>
             <Tooltip.Root delayDuration={0}>
                 <Tooltip.Trigger asChild>
-                    <a href={link} target="_blank" rel="noopener noreferrer">
-                        <div className="group flex items-center justify-center rounded-lg bg-stone-200 p-2 transition-all hover:bg-stone-300/70 dark:bg-neutral-800 dark:hover:bg-neutral-800/70">
+                    <li>
+                        <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-center rounded-lg bg-stone-200 p-2 transition-all hover:bg-stone-300/70 dark:bg-neutral-800 dark:hover:bg-neutral-800/70"
+                        >
                             <Image
                                 src={src}
                                 width={50}
                                 height={50}
-                                alt={title}
+                                alt={`Visit the ${title} website`}
                                 className="transition-all duration-300 ease-out group-hover:scale-110 group-hover:drop-shadow-md"
                             />
-                        </div>
-                    </a>
+                        </a>
+                    </li>
                 </Tooltip.Trigger>
                 <Tooltip.Portal>
                     <Tooltip.Content

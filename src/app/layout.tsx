@@ -12,11 +12,10 @@ import { Rays } from '@/app/components/Rays';
 // Types
 import type { ReactNode } from 'react';
 
-const inter = Inter({ subsets: ['latin-ext'] });
-
 export const metadata = {
-    title: 'Christian Korndörfer',
-    description: 'Senior Software Engineer',
+    title: 'Home | chko.org',
+    description:
+        'Personal website of Christian Korndörfer – Senior Software Engineer based in Berlin',
     openGraph: {
         title: 'Christian Korndörfer',
         description: 'Senior Software Engineer',
@@ -36,7 +35,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en-US" suppressHydrationWarning>
             <body
                 className={clsx(
                     GeistSans.className,

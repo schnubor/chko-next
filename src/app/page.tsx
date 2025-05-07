@@ -12,7 +12,7 @@ export default function Home() {
                     <Avatar />
                     <div className="flex-col">
                         <h1 className="text-lg font-semibold">Christian Korndörfer</h1>
-                        <h2 className="text-xs text-stone-500 dark:text-neutral-500">
+                        <h2 className="text-xs text-stone-500 dark:text-neutral-400">
                             Senior Software Engineer
                         </h2>
                     </div>
@@ -28,7 +28,7 @@ export default function Home() {
                 <p className="mt-2">
                     Currently at{' '}
                     <a
-                        className="animate-gradient-x bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text font-semibold text-transparent outline-none transition"
+                        className="animate-gradient-x bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text font-semibold text-transparent outline-none transition focus-within:ring-2 focus-within:ring-blue-500"
                         href="https://perspective.co"
                         target="_blank"
                         rel="noopener"

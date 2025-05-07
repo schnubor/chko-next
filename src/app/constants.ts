@@ -12,19 +12,14 @@ export const DOCK_ITEMS = [
         link: 'https://www.linear.app',
     },
     {
-        title: 'Ghostty',
-        src: '/dock/ghostty.webp',
-        link: 'https://ghostty.org/',
+        title: 'Warp',
+        src: '/dock/warp.webp',
+        link: 'https://warp.dev/',
     },
     {
         title: 'Arc',
         src: '/dock/arc.webp',
         link: 'https://arc.net',
-    },
-    {
-        title: 'Steam',
-        src: '/dock/steam.webp',
-        link: 'https://steampowered.com/',
     },
     {
         title: 'Slack',
@@ -40,5 +35,10 @@ export const DOCK_ITEMS = [
         title: 'Notion Calendar',
         src: '/dock/notioncalendar.webp',
         link: 'https://www.notion.so/product/calendar',
+    },
+    {
+        title: 'Steam',
+        src: '/dock/steam.webp',
+        link: 'https://steampowered.com/',
     },
 ];

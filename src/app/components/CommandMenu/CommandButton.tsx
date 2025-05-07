@@ -3,6 +3,7 @@
 // UI
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { CommandMenu } from './CommandMenu';
+import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 // Hooks
 import { useEffect, useState } from 'react';
@@ -37,10 +38,11 @@ export const CommandButton: FC<Props> = ({}) => {
                 <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                         <button
-                            className="fixed bottom-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-xl text-stone-50 shadow-lg transition-transform active:scale-90 sm:static sm:bottom-auto sm:right-auto sm:h-10 sm:w-10 sm:shadow-none"
+                            className="fixed bottom-4 right-4 z-10 flex size-12 items-center justify-center rounded-full bg-orange-300 text-xl text-orange-900 shadow-lg transition-transform active:scale-90 dark:bg-orange-700 dark:text-white sm:static sm:bottom-auto sm:right-auto sm:h-10 sm:w-10 sm:shadow-none"
                             onClick={() => setOpen(true)}
                         >
-                            ⌘
+                            <span className="sr-only">Menu</span>
+                            <HamburgerMenuIcon className="size-4 stroke-2" />
                         </button>
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
@@ -49,10 +51,10 @@ export const CommandButton: FC<Props> = ({}) => {
                             sideOffset={5}
                             side="left"
                         >
-                            <kbd className="flex h-4 w-4 items-center justify-center rounded bg-stone-600 p-1 text-[10px] leading-none dark:bg-neutral-600">
+                            <kbd className="flex size-4 items-center justify-center rounded bg-stone-600 p-1 text-[10px] leading-none dark:bg-neutral-600">
                                 ⌘
                             </kbd>
-                            <kbd className="flex h-4 w-4 items-center justify-center rounded bg-stone-600 text-[10px] dark:bg-neutral-600">
+                            <kbd className="flex size-4 items-center justify-center rounded bg-stone-600 text-[10px] dark:bg-neutral-600">
                                 K
                             </kbd>
                         </Tooltip.Content>

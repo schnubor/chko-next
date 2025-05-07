@@ -86,7 +86,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
 
                                 <Command.Group
                                     heading="Social"
-                                    className="mt-2 text-xs text-stone-500"
+                                    className="mt-2 text-xs text-stone-600 dark:text-neutral-400"
                                 >
                                     <div className="mt-2">
                                         <CommandItem
@@ -113,7 +113,7 @@ export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) =
 
                                 <Command.Group
                                     heading="Theme"
-                                    className="mt-2 text-xs text-stone-500"
+                                    className="mt-2 text-xs text-stone-600 dark:text-neutral-400"
                                 >
                                     <div className="mt-2">
                                         <ThemeCommandItem theme={Theme.LIGHT} />
