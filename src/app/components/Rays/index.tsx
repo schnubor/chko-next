@@ -1,4 +1,4 @@
-export function Rays() {
+export const Rays = () => {
     return (
         <div className="fixed inset-0 -z-10 hidden w-full opacity-50 dark:block">
             <div className="relative mx-auto max-w-(--breakpoint-xl)">
@@ -8,4 +8,4 @@ export function Rays() {
             </div>
         </div>
     );
-}
+};

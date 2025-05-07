@@ -1,9 +1,7 @@
 'use client';
 
 import { ClockIcon } from '@radix-ui/react-icons';
-
 import { formatInTimeZone } from 'date-fns-tz';
-
 import { useEffect, useState } from 'react';
 
 import type { FC } from 'react';

@@ -1,11 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
-
 import { DesktopIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 
-import type { FC } from 'react';
 import { Theme } from '@/app/types';
 
 interface Props {
@@ -28,7 +26,7 @@ const themeMap = {
     },
 };
 
-const ThemeSwitch: FC<Props> = ({ theme, onClick }) => {
+const ThemeSwitch = ({ theme, onClick }: Props) => {
     const [mounted, setMounted] = useState(false);
     const { setTheme } = useTheme();
 

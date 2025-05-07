@@ -1,10 +1,6 @@
 import { DOCK_ITEMS } from '@/app/constants';
 
-// Utils
-import { Command } from 'cmdk';
-
-// UI
-import { CommandItem } from './CommandItem';
+import { DialogTitle } from '@radix-ui/react-dialog';
 import {
     BackpackIcon,
     GitHubLogoIcon,
@@ -12,19 +8,17 @@ import {
     LinkedInLogoIcon,
     StackIcon,
 } from '@radix-ui/react-icons';
-import { ThemeCommandItem } from '@/app/components/CommandMenu/ThemeCommandItem';
-import { Breadcrumb } from './Breadcrumb';
-import { LinkCommandItem } from './LinkCommandItem';
-import { BlueskyLogo } from '@/app/components/CommandMenu/BlueskyLogo';
-import { DialogTitle } from '@radix-ui/react-dialog';
-
-// Hooks
+import { Command } from 'cmdk';
 import { useEffect, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 
-// Types
-import type { FC } from 'react';
+import { BlueskyLogo } from '@/app/components/CommandMenu/BlueskyLogo';
+import { ThemeCommandItem } from '@/app/components/CommandMenu/ThemeCommandItem';
 import { Theme } from '@/app/types';
+
+import { Breadcrumb } from './Breadcrumb';
+import { CommandItem } from './CommandItem';
+import { LinkCommandItem } from './LinkCommandItem';
 
 interface Props {
     open: boolean;
@@ -32,7 +26,7 @@ interface Props {
     onClickOutside: () => void;
 }
 
-export const CommandMenu: FC<Props> = ({ open, onOpenChange, onClickOutside }) => {
+export const CommandMenu = ({ open, onOpenChange, onClickOutside }: Props) => {
     const [activeMenu, setActiveMenu] = useState('main');
     const outsideClickRef = useRef(null);
 

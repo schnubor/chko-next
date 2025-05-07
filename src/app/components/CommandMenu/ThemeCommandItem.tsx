@@ -1,10 +1,9 @@
 import { Command } from 'cmdk';
+import { useTheme } from 'next-themes';
 
 import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';
 
-import { Theme } from '@/app/types';
-import { useTheme } from 'next-themes';
-
+import type { Theme } from '@/app/types';
 import type { FC } from 'react';
 
 interface Props {

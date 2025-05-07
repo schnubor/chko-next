@@ -1,4 +1,4 @@
-export function Skeleton() {
+export const Skeleton = () => {
     return (
         <div className="w-full animate-pulse">
             <div className="mt-0.5 flex items-center space-x-4">
@@ -11,10 +11,10 @@ export function Skeleton() {
             </div>
 
             <div className="mt-4 flex flex-wrap">
-                <div className="mb-2 mr-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
-                <div className="mb-2 mr-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
-                <div className="mb-2 mr-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
-                <div className="mb-2 mr-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
+                <div className="mr-2 mb-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
+                <div className="mr-2 mb-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
+                <div className="mr-2 mb-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
+                <div className="mr-2 mb-2 h-6 w-16 rounded-lg bg-stone-300 dark:bg-neutral-800" />
             </div>
 
             <div className="mt-8 w-full space-y-2.5">
@@ -34,4 +34,4 @@ export function Skeleton() {
             <div className="mt-8 aspect-video w-full rounded-lg bg-stone-300 dark:bg-neutral-800" />
         </div>
     );
-}
+};

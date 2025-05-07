@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
+
 import { cn } from '@/utils/cn';
 
 import type { ReactNode } from 'react';
@@ -16,7 +17,7 @@ export const WorkTile = ({ children, title, description, className = '', link }:
     return (
         <li
             className={cn(
-                'group relative rounded-lg bg-stone-200 p-4 transition-all ease-out hover:bg-stone-300/70 hover:shadow-tile dark:bg-neutral-800 dark:hover:bg-neutral-800/70',
+                'group hover:shadow-tile relative rounded-lg bg-stone-200 p-4 transition-all ease-out hover:bg-stone-300/70 dark:bg-neutral-800 dark:hover:bg-neutral-800/70',
                 className,
             )}
         >
@@ -30,7 +31,7 @@ export const WorkTile = ({ children, title, description, className = '', link }:
                 </div>
 
                 {link && (
-                    <ArrowRightIcon className="absolute right-4 top-4 size-5 origin-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
+                    <ArrowRightIcon className="absolute top-4 right-4 size-5 origin-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
                 )}
             </Link>
         </li>

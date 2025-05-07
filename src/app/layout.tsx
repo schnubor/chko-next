@@ -1,15 +1,12 @@
-// Utils
 import clsx from 'clsx';
-import { Providers } from '@/app/providers';
-
-// UI
-import './globals.css';
-import { Inter } from 'next/font/google';
 import { GeistSans } from 'geist/font/sans';
+
 import { Footer } from '@/app/components/Footer';
 import { Rays } from '@/app/components/Rays';
+import { Providers } from '@/app/providers';
 
-// Types
+import './globals.css';
+
 import type { ReactNode } from 'react';
 
 export const metadata = {
@@ -59,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <rect width="100%" height="100%" filter="url(#pedroduarteisalegend)"></rect>
                 </svg>
                 <Providers>
-                    <main className="mx-auto max-w-(--breakpoint-sm) px-6 pb-32 text-stone-900 dark:text-neutral-300 sm:px-0">
+                    <main className="mx-auto max-w-(--breakpoint-sm) px-6 pb-32 text-stone-900 sm:px-0 dark:text-neutral-300">
                         {children}
 
                         <Footer />

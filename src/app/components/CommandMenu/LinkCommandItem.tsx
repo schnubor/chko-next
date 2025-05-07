@@ -1,12 +1,11 @@
-import { Command } from 'cmdk';
-import Link from 'next/link';
-
-import { useRouter } from 'next/navigation';
 import { ArrowTopRightIcon } from '@radix-ui/react-icons';
+import { Command } from 'cmdk';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-import type { FC, ForwardRefExoticComponent, JSX, RefAttributes } from 'react';
 import type { IconProps } from '@radix-ui/react-icons/dist/types';
+import type { FC, ForwardRefExoticComponent, JSX, RefAttributes } from 'react';
 
 interface Props {
     link: string;

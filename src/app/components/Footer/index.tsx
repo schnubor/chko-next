@@ -1,5 +1,6 @@
-import { Clock } from './Clock';
 import { ArrowRightIcon, DrawingPinIcon } from '@radix-ui/react-icons';
+
+import { Clock } from './Clock';
 
 export const Footer = () => {
     const now = new Date();

@@ -1,10 +1,10 @@
 'use client';
 
-import * as Tooltip from '@radix-ui/react-tooltip';
-import { CommandMenu } from './CommandMenu';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
-
+import * as Tooltip from '@radix-ui/react-tooltip';
 import { useEffect, useState } from 'react';
+
+import { CommandMenu } from './CommandMenu';
 
 export const CommandButton = () => {
     const [open, setOpen] = useState(false);

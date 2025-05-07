@@ -1,8 +1,9 @@
 // UI
+import { Avatar } from '@/app/components/Avatar';
 import { Dock } from '@/app/components/Dock';
 import { Work } from '@/app/components/Work';
+
 import { Header } from './components/Header';
-import { Avatar } from '@/app/components/Avatar';
 
 export default function Home() {
     return (

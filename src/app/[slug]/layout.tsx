@@ -1,6 +1,7 @@
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { Header } from '../components/Header';
 import Link from 'next/link';
+
+import { Header } from '../components/Header';
 
 import type { ReactNode } from 'react';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import * as Tooltip from '@radix-ui/react-tooltip';
+import Image from 'next/image';
 
 interface Props {
     title: string;

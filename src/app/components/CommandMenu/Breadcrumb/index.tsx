@@ -1,14 +1,15 @@
-import { Pill } from './Pill';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 
-import type { Dispatch, FC, SetStateAction } from 'react';
+import { Pill } from './Pill';
+
+import type { Dispatch, SetStateAction } from 'react';
 
 interface Props {
     activeMenu: string;
     onPillClick: Dispatch<SetStateAction<string>>;
 }
 
-export const Breadcrumb: FC<Props> = ({ activeMenu, onPillClick }) => {
+export const Breadcrumb = ({ activeMenu, onPillClick }: Props) => {
     if (activeMenu === 'main') {
         return null;
     }

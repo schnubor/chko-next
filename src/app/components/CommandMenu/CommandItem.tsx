@@ -1,10 +1,8 @@
-import { Command } from 'cmdk';
-import { cn } from '@/utils/cn';
-
 import { ArrowTopRightIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { Command } from 'cmdk';
 
-import type { FC, ForwardRefExoticComponent, RefAttributes, JSX, KeyboardEvent } from 'react';
 import type { IconProps } from '@radix-ui/react-icons/dist/types';
+import type { ForwardRefExoticComponent, RefAttributes, JSX } from 'react';
 
 interface Props {
     icon:
@@ -16,13 +14,13 @@ interface Props {
     link?: string;
 }
 
-export const CommandItem: FC<Props> = ({ icon: Icon, title, onClick, hasSubmenu, link }) => {
+export const CommandItem = ({ icon: Icon, title, onClick, hasSubmenu, link }: Props) => {
     const content = (
         <>
             <Icon className="ml-4 size-4" /> <span className="ml-4">{title}</span>
-            {hasSubmenu && <ChevronRightIcon className="ml-auto mr-4" />}
+            {hasSubmenu && <ChevronRightIcon className="mr-4 ml-auto" />}
             {link && (
-                <ArrowTopRightIcon className="ml-auto mr-4 origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100 dark:text-orange-500" />
+                <ArrowTopRightIcon className="mr-4 ml-auto origin-bottom-left scale-0 transition duration-200 ease-out group-hover/link:scale-100 dark:text-orange-500" />
             )}
         </>
     );

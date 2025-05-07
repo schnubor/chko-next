@@ -1,44 +1,20 @@
 import { GraphQLClient } from 'graphql-request';
-import { notFound } from 'next/navigation';
-import { ALLOWED_PAGES } from '../constants';
-
-import { Suspense } from 'react';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import Markdown from 'react-markdown';
+
 import { mdxComponents } from '@/app/[slug]/components/MdxComponents';
-import { TechStack } from '@/app/[slug]/components/TechStack';
 import { Skeleton } from '@/app/[slug]/components/Skeleton';
+import { TechStack } from '@/app/[slug]/components/TechStack';
+
+import { ALLOWED_PAGES } from '../constants';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API as string);
 
 interface Props {
     params: Promise<{ slug: string }>;
 }
-
-export const generateMetadata = async (props: Props) => {
-    const params = await props.params;
-    const work = await fetchWork(params.slug);
-
-    return {
-        title: `${work.headline} | chko.org`,
-        description: work.role,
-        openGraph: {
-            title: `${work.headline} | chko.org`,
-            description: work.role,
-            url: `https://chko.org/${params.slug}`,
-            siteName: 'chko.org',
-            images: [
-                {
-                    url: 'https://chko.org/ogimage.jpg',
-                    width: 1200,
-                    height: 600,
-                },
-            ],
-            locale: 'en_US',
-            type: 'website',
-        },
-    };
-};
 
 interface Work {
     headline: string;
@@ -71,8 +47,34 @@ const fetchWork = async (slug: string) => {
     return work;
 };
 
+export const generateMetadata = async (props: Props) => {
+    const params = await props.params;
+    const work = await fetchWork(params.slug);
+
+    return {
+        title: `${work.headline} | chko.org`,
+        description: work.role,
+        openGraph: {
+            title: `${work.headline} | chko.org`,
+            description: work.role,
+            url: `https://chko.org/${params.slug}`,
+            siteName: 'chko.org',
+            images: [
+                {
+                    url: 'https://chko.org/ogimage.jpg',
+                    width: 1200,
+                    height: 600,
+                },
+            ],
+            locale: 'en_US',
+            type: 'website',
+        },
+    };
+};
+
 const WorkPage = async (props: Props) => {
     const params = await props.params;
+
     if (!ALLOWED_PAGES.includes(params.slug)) {
         return notFound();
     }
