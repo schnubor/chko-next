@@ -1,7 +1,5 @@
-// UI
 import Image from 'next/image';
 
-// Types
 import type { Components } from 'react-markdown';
 
 export const mdxComponents: Components = {

@@ -1,4 +1,3 @@
-// UI
 import { Avatar } from '@/app/components/Avatar';
 import { Dock } from '@/app/components/Dock';
 import { Work } from '@/app/components/Work';

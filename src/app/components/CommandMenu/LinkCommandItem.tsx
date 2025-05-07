@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import type { IconProps } from '@radix-ui/react-icons/dist/types';
-import type { FC, ForwardRefExoticComponent, JSX, RefAttributes } from 'react';
+import type { ForwardRefExoticComponent, JSX, RefAttributes } from 'react';
 
 interface Props {
     link: string;
@@ -18,14 +18,7 @@ interface Props {
     isExternal?: boolean;
 }
 
-export const LinkCommandItem: FC<Props> = ({
-    link,
-    title,
-    src,
-    icon: Icon,
-    onClick,
-    isExternal,
-}) => {
+export const LinkCommandItem = ({ link, title, src, icon: Icon, onClick, isExternal }: Props) => {
     const { push } = useRouter();
 
     const handleSelect = () => {

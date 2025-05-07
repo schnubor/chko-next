@@ -1,17 +1,16 @@
 import { Command } from 'cmdk';
 import { useTheme } from 'next-themes';
 
-import ThemeSwitch from '@/app/components/CommandMenu/ThemeSwitch';
+import { ThemeSwitch } from '@/app/components/CommandMenu/ThemeSwitch';
 
 import type { Theme } from '@/app/types';
-import type { FC } from 'react';
 
 interface Props {
     theme: Theme;
     onClick?: () => void;
 }
 
-export const ThemeCommandItem: FC<Props> = ({ theme, onClick }) => {
+export const ThemeCommandItem = ({ theme, onClick }: Props) => {
     const { setTheme } = useTheme();
 
     const handleSelect = () => {

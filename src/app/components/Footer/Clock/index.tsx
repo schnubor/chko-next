@@ -4,13 +4,11 @@ import { ClockIcon } from '@radix-ui/react-icons';
 import { formatInTimeZone } from 'date-fns-tz';
 import { useEffect, useState } from 'react';
 
-import type { FC } from 'react';
-
-export interface Props {
+interface Props {
     time: number;
 }
 
-export const Clock: FC<Props> = ({ time: initial }) => {
+export const Clock = ({ time: initial }: Props) => {
     const [time, setTime] = useState(new Date(initial));
 
     useEffect(() => {

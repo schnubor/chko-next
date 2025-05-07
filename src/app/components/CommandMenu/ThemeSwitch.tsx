@@ -26,7 +26,7 @@ const themeMap = {
     },
 };
 
-const ThemeSwitch = ({ theme, onClick }: Props) => {
+export const ThemeSwitch = ({ theme, onClick }: Props) => {
     const [mounted, setMounted] = useState(false);
     const { setTheme } = useTheme();
 
@@ -56,5 +56,3 @@ const ThemeSwitch = ({ theme, onClick }: Props) => {
         </button>
     );
 };
-
-export default ThemeSwitch;
