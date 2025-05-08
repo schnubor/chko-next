@@ -24,7 +24,7 @@ export const ThemeCommandItem = ({ theme, onClick }: Props) => {
             className="rounded-lg outline-hidden data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
             onSelect={handleSelect}
         >
-            <ThemeSwitch theme={theme} onClick={onClick} />
+            <ThemeSwitch theme={theme} />
         </Command.Item>
     );
 };

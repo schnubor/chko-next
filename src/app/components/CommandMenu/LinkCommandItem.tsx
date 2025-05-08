@@ -1,7 +1,6 @@
 import { ArrowTopRightIcon } from '@radix-ui/react-icons';
 import { Command } from 'cmdk';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import type { IconProps } from '@radix-ui/react-icons/dist/types';
@@ -37,7 +36,7 @@ export const LinkCommandItem = ({ link, title, src, icon: Icon, onClick, isExter
             onClick={onClick}
         >
             {src ? (
-                <Image src={src} alt={title} width={20} height={20} />
+                <Image src={src} alt="" width={20} height={20} />
             ) : Icon ? (
                 <Icon className="size-4" />
             ) : null}
@@ -50,16 +49,10 @@ export const LinkCommandItem = ({ link, title, src, icon: Icon, onClick, isExter
 
     return (
         <Command.Item
-            className="rounded-lg outline-hidden data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
+            className="group/link rounded-lg outline-hidden data-[selected=true]:bg-stone-300 dark:data-[selected=true]:bg-neutral-800"
             onSelect={handleSelect}
         >
-            {isExternal ? (
-                <a href={link} target="_blank" rel="noopener noreferrer" className="group/link">
-                    {content}
-                </a>
-            ) : (
-                <Link href={link}>{content}</Link>
-            )}
+            {content}
         </Command.Item>
     );
 };

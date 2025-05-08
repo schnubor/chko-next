@@ -31,6 +31,7 @@ export const CommandButton = () => {
                 <Tooltip.Root delayDuration={0}>
                     <Tooltip.Trigger asChild>
                         <button
+                            data-testid="menu-button"
                             className="fixed right-4 bottom-4 z-10 flex size-12 items-center justify-center rounded-full bg-orange-300 text-xl text-orange-900 shadow-lg transition-transform active:scale-90 sm:static sm:right-auto sm:bottom-auto sm:h-10 sm:w-10 sm:shadow-none dark:bg-orange-700 dark:text-white"
                             onClick={() => setOpen(true)}
                         >
