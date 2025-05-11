@@ -52,6 +52,9 @@ export const CommandMenu = ({ open, onOpenChange, onClickOutside }: Props) => {
                     className="animate-slide-down-and-fade relative w-full rounded-xl border bg-stone-200 text-sm shadow-lg dark:border-neutral-800 dark:bg-neutral-900"
                     ref={outsideClickRef}
                 >
+                    {/* Required to set focus correctly after cmdk is mounted */}
+                    <button autoFocus aria-hidden="true" className="sr-only" />
+
                     <Command.List className="relative z-10 p-2">
                         <Breadcrumb activeMenu={activeMenu} onPillClick={setActiveMenu} />
 
