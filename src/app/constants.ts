@@ -12,14 +12,14 @@ export const DOCK_ITEMS = [
         link: 'https://www.linear.app',
     },
     {
-        title: 'Warp',
-        src: '/dock/warp.webp',
-        link: 'https://warp.dev/',
+        title: 'Dia',
+        src: '/dock/dia.webp',
+        link: 'https://www.diabrowser.com/',
     },
     {
-        title: 'Arc',
-        src: '/dock/arc.webp',
-        link: 'https://arc.net',
+        title: 'Warp',
+        src: '/dock/warp2.webp',
+        link: 'https://warp.dev/',
     },
     {
         title: 'Slack',
