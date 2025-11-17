@@ -2,9 +2,9 @@ export const ALLOWED_PAGES = ['perspective', 'tapetv', 'styla'];
 
 export const DOCK_ITEMS = [
     {
-        title: 'Webstorm',
-        src: '/dock/webstorm.webp',
-        link: 'https://www.jetbrains.com/webstorm/',
+        title: 'Zed',
+        src: '/dock/zed.webp',
+        link: 'https://www.zed.dev/',
     },
     {
         title: 'Linear',
@@ -18,7 +18,7 @@ export const DOCK_ITEMS = [
     },
     {
         title: 'Warp',
-        src: '/dock/warp2.webp',
+        src: '/dock/warp3.webp',
         link: 'https://warp.dev/',
     },
     {
