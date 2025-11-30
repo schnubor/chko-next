@@ -19,7 +19,7 @@ export const DockTile = ({ title, src, link }: Props) => {
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center justify-center rounded-lg bg-stone-200 p-2 transition-all hover:bg-stone-300/70 dark:bg-neutral-800 dark:hover:bg-neutral-800/70"
+                            className="group flex items-center justify-center rounded-lg bg-stone-200/40 p-2 transition-all hover:bg-stone-200/50 dark:bg-neutral-800/40 dark:hover:bg-neutral-800/50"
                         >
                             <Image
                                 src={src}

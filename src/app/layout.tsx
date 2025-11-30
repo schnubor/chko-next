@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { GeistSans } from 'geist/font/sans';
 
 import { Footer } from '@/app/components/Footer';
-import { Rays } from '@/app/components/Rays';
 import { Providers } from '@/app/providers';
 
 import './globals.css';
@@ -39,8 +38,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     'selection:bg-orange-500/90 selection:text-white',
                 )}
             >
-                <Rays />
-                <svg
+                {/*<Rays />*/}
+                {/*<svg
                     className="pointer-events-none fixed inset-0 isolate z-50 opacity-40 mix-blend-soft-light"
                     width="100%"
                     height="100%"
@@ -54,7 +53,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                         ></feTurbulence>
                     </filter>
                     <rect width="100%" height="100%" filter="url(#pedroduarteisalegend)"></rect>
-                </svg>
+                </svg>*/}
                 <Providers>
                     <main className="mx-auto max-w-(--breakpoint-sm) px-6 pb-32 text-stone-900 sm:px-0 dark:text-neutral-300">
                         {children}

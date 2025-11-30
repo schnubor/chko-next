@@ -34,6 +34,7 @@
         "react-dom": "19.2.0",
         "react-markdown": "^9.0.1",
         "react-use": "^17.6.0",
+        "styled-components": "^6.1.19",
         "tailwind-merge": "^2.6.0"
     },
     "devDependencies": {
