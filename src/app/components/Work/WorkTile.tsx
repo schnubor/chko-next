@@ -2,7 +2,6 @@
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
 import { useEffect, useRef, useCallback, type ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -26,6 +25,11 @@ const Glow = styled.div`
     position: absolute;
     inset: 0;
     filter: blur(calc(10 * 1px));
+    display: none;
+
+    @media (prefers-color-scheme: dark) {
+        display: block;
+    }
 
     &::before,
     &::after {
@@ -59,7 +63,7 @@ const Glow = styled.div`
     }
 `;
 
-const Container = styled.li<{ $isDark: boolean }>`
+const Container = styled.li`
     will-change: auto;
 
     &::before {
@@ -69,7 +73,7 @@ const Container = styled.li<{ $isDark: boolean }>`
         content: '';
         border-radius: 12px;
         pointer-events: none;
-        background: ${(props) => (props.$isDark ? 'hsl(280 10% 50% / 1)' : '#ddd')};
+        background: hsl(280 10% 50% / 1);
         background-attachment: fixed;
         mask: linear-gradient(#0000, #0000),
             conic-gradient(
@@ -110,7 +114,7 @@ const Container = styled.li<{ $isDark: boolean }>`
                 #fff,
                 #0000 calc(20 * 0.5deg)
             );
-        filter: brightness(${(props) => (props.$isDark ? '1.5' : '3')});
+        filter: brightness(1.5);
         mask-clip: padding-box, border-box;
         mask-composite: intersect;
     }
@@ -119,8 +123,6 @@ const Container = styled.li<{ $isDark: boolean }>`
 export const WorkTile = ({ children, title, description, className = '', link }: Props) => {
     const ref = useRef<HTMLLIElement>(null);
     const rafIdRef = useRef<number>(null);
-    const { theme } = useTheme();
-    const isDark = theme === 'dark';
 
     const handleMouseMove = useCallback((event: globalThis.PointerEvent) => {
         if (!ref.current) {
@@ -184,9 +186,8 @@ export const WorkTile = ({ children, title, description, className = '', link }:
                 'group hover:shadow-tile relative rounded-xl bg-stone-200/40 p-4 transition-all ease-out hover:bg-stone-200/50 dark:bg-neutral-800/40 dark:hover:bg-neutral-800/50',
                 className,
             )}
-            $isDark={isDark}
         >
-            {isDark ? <Glow /> : null}
+            <Glow />
             <Link href={link}>
                 {children}
                 <div className="mt-6">
