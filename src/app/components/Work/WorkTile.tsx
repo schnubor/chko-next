@@ -181,8 +181,6 @@ export const WorkTile = ({ children, title, description, className = '', link }:
         };
     }, [handleMouseMove]);
 
-    console.log(theme);
-
     if (theme === 'light') {
         return (
             <div
