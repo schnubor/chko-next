@@ -2,6 +2,7 @@
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 import { useEffect, useRef, useCallback, type ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -123,6 +124,7 @@ const Container = styled.li`
 export const WorkTile = ({ children, title, description, className = '', link }: Props) => {
     const ref = useRef<HTMLLIElement>(null);
     const rafIdRef = useRef<number>(null);
+    const { theme } = useTheme();
 
     const handleMouseMove = useCallback((event: globalThis.PointerEvent) => {
         if (!ref.current) {
@@ -178,6 +180,33 @@ export const WorkTile = ({ children, title, description, className = '', link }:
             }
         };
     }, [handleMouseMove]);
+
+    console.log(theme);
+
+    if (theme === 'light') {
+        return (
+            <div
+                className={cn(
+                    'group hover:shadow-tile relative rounded-xl bg-stone-200/40 p-4 transition-all ease-out hover:bg-stone-200/50 dark:bg-neutral-800/40 dark:hover:bg-neutral-800/50',
+                    className,
+                )}
+            >
+                <Link href={link}>
+                    {children}
+                    <div className="mt-6">
+                        <h3 className="font-semibold">{title}</h3>
+                        <span className="text-xs text-stone-600 dark:text-neutral-400">
+                            {description}
+                        </span>
+                    </div>
+
+                    {link && (
+                        <ArrowRightIcon className="absolute top-4 right-4 size-5 origin-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
+                    )}
+                </Link>
+            </div>
+        );
+    }
 
     return (
         <Container
