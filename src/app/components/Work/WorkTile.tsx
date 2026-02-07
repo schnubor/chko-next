@@ -38,19 +38,20 @@ const Glow = styled.div`
         content: '';
         background: conic-gradient(
             from 180deg at 50% 70%,
-            hsla(0, 0%, 98%, 1) 0deg,
-            #4dffbf 72.0000010728836deg,
-            #709ab9 144.0000021457672deg,
-            #ec4b4b 216.00000858306885deg,
-            #eec32d 288.0000042915344deg,
-            hsla(0, 0%, 98%, 1) 1turn
+            hsla(0, 0%, 50%, 1) 0deg,
+            hsla(0, 0%, 50%, 1) 72.0000010728836deg,
+            hsla(0, 0%, 50%, 1) 144.0000021457672deg,
+            #6e452f 216.00000858306885deg,
+            #6e452f 288.0000042915344deg,
+            hsla(0, 0%, 50%, 1) 1turn
         );
         background-attachment: fixed;
         position: absolute;
         inset: -5px;
         border: 10px solid transparent;
         border-radius: 12px;
-        mask: linear-gradient(#0000, #0000),
+        mask:
+            linear-gradient(#0000, #0000),
             conic-gradient(
                 from calc((var(--angle, 0) - (20 * 0.5)) * 1deg),
                 #000 0deg,
@@ -76,7 +77,8 @@ const Container = styled.li`
         pointer-events: none;
         background: hsl(280 10% 50% / 1);
         background-attachment: fixed;
-        mask: linear-gradient(#0000, #0000),
+        mask:
+            linear-gradient(#0000, #0000),
             conic-gradient(
                 from calc(((var(--angle, 0) + (20 * 0.25)) - (20 * 1.5)) * 1deg),
                 hsl(0 0% 100% / 0.15) 0deg,
@@ -95,12 +97,12 @@ const Container = styled.li`
         position: absolute;
         background: conic-gradient(
             from 180deg at 50% 70%,
-            hsla(0, 0%, 98%, 1) 0deg,
-            #4dffbf 72.0000010728836deg,
-            #709ab9 144.0000021457672deg,
-            #ec4b4b 216.00000858306885deg,
-            #eec32d 288.0000042915344deg,
-            hsla(0, 0%, 98%, 1) 1turn
+            hsla(0, 0%, 70%, 1) 0deg,
+            hsla(0, 0%, 70%, 1) 72.0000010728836deg,
+            hsla(0, 0%, 70%, 1) 144.0000021457672deg,
+            #6e452f 216.00000858306885deg,
+            #6e452f 288.0000042915344deg,
+            hsla(0, 0%, 70%, 1) 1turn
         );
         background-attachment: fixed;
         border-radius: 12px;
@@ -108,7 +110,8 @@ const Container = styled.li`
         transition: opacity 1s;
         inset: 0;
         border: 1px solid transparent;
-        mask: linear-gradient(#0000, #0000),
+        mask:
+            linear-gradient(#0000, #0000),
             conic-gradient(
                 from calc(((var(--angle, 0) + (20 * 0.25)) - (20 * 0.5)) * 1deg),
                 #0000 0deg,

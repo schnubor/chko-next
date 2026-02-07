@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import { defineConfig } from 'eslint/config';
 import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
@@ -28,7 +27,6 @@ export default defineConfig([
 
         plugins: {
             'unused-imports': unusedImports,
-            '@typescript-eslint': typescriptEslint,
             '@stylistic': stylistic,
         },
 
