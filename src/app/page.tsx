@@ -1,8 +1,17 @@
+
 import { Avatar } from '@/app/components/Avatar';
 import { Dock } from '@/app/components/Dock';
 import { Work } from '@/app/components/Work';
 
 import { Header } from './components/Header';
+
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Christian Korndörfer — Senior Software Engineer',
+    description:
+        'Personal portfolio of Christian Korndörfer, Senior Software Engineer designing, building and shipping web applications since 2008.',
+};
 
 export default function Home() {
     return (

@@ -31,10 +31,7 @@ export const LinkCommandItem = ({ link, title, src, icon: Icon, onClick, isExter
     };
 
     const content = (
-        <div
-            className="flex h-10 w-full cursor-pointer items-center rounded-lg px-4 text-sm text-stone-800 outline-hidden dark:text-neutral-300"
-            onClick={onClick}
-        >
+        <div className="flex h-10 w-full cursor-pointer items-center rounded-lg px-4 text-sm text-stone-800 outline-hidden dark:text-neutral-300">
             {src ? (
                 <Image src={src} alt="" width={20} height={20} />
             ) : Icon ? (

@@ -9,7 +9,7 @@ import {
     StackIcon,
 } from '@radix-ui/react-icons';
 import { Command } from 'cmdk';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 
 import { BlueskyLogo } from '@/app/components/CommandMenu/BlueskyLogo';
@@ -32,16 +32,17 @@ export const CommandMenu = ({ open, onOpenChange, onClickOutside }: Props) => {
 
     useClickAway(outsideClickRef, onClickOutside);
 
-    useEffect(() => {
-        if (open) {
+    const handleOpenChange = (nextOpen: boolean) => {
+        if (nextOpen) {
             setActiveMenu('main');
         }
-    }, [open]);
+        onOpenChange(nextOpen);
+    };
 
     return (
         <Command.Dialog
             open={open}
-            onOpenChange={onOpenChange}
+            onOpenChange={handleOpenChange}
             label="Menu"
             overlayClassName="fixed z-10 inset-0 size-screen animate-fade-in data-[state='closed']:animate-fade-out bg-stone-800/50 backdrop-blur-xs dark:bg-neutral-800/50 size-screen"
             contentClassName="data-[state='closed']:animate-slide-up-and-fade-out z-20 group fixed inset-0 flex h-screen w-screen items-center justify-center [&_[cmdk-group-heading]]:px-2"
@@ -53,7 +54,7 @@ export const CommandMenu = ({ open, onOpenChange, onClickOutside }: Props) => {
                     ref={outsideClickRef}
                 >
                     {/* Required to set focus correctly after cmdk is mounted */}
-                    <button autoFocus aria-hidden="true" className="sr-only" />
+                    <button autoFocus aria-hidden="true" className="sr-only" tabIndex={-1} />
 
                     <Command.List className="relative z-10 p-2">
                         <Breadcrumb activeMenu={activeMenu} onPillClick={setActiveMenu} />
