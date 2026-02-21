@@ -22,9 +22,9 @@ export const DOCK_ITEMS = [
         link: 'https://warp.dev/',
     },
     {
-        title: 'Slack',
-        src: '/dock/slack.webp',
-        link: 'https://slack.com',
+        title: 'Claude',
+        src: '/dock/claude.webp',
+        link: 'https://claude.ai',
     },
     {
         title: 'Notion',
