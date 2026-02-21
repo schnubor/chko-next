@@ -8,9 +8,10 @@ import './globals.css';
 
 import { Grainient } from './components/Grainient';
 
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
-export const metadata = {
+export const metadata: Metadata = {
     title: 'Home | chko.org',
     description:
         'Personal website of Christian Korndörfer – Senior Software Engineer based in Berlin',
