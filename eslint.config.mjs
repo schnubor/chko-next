@@ -7,6 +7,7 @@ import stylistic from '@stylistic/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import { defineConfig } from 'eslint/config';
 import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypeScript from 'eslint-config-next/typescript';
 import unusedImports from 'eslint-plugin-unused-imports';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,6 +23,7 @@ export default defineConfig([
         extends: [
             ...compat.extends('eslint:recommended'),
             ...nextCoreWebVitals,
+            ...nextTypeScript,
             ...compat.extends('prettier'),
         ],
 

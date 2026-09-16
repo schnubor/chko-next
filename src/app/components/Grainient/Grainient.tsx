@@ -133,8 +133,8 @@ export const Grainient = ({
     zoom = 0.9,
     className = '',
 }) => {
-    const { theme } = useTheme();
-    const isLight = theme === 'light';
+    const { resolvedTheme } = useTheme();
+    const isLight = resolvedTheme === 'light';
     const color1 = isLight ? '#E2E1DD' : '#000504';
     const color2 = isLight ? '#DFDAD1' : '#141516';
     const color3 = isLight ? '#D7BBA0' : '#6E452F';
