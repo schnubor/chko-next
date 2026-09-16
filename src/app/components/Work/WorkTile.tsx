@@ -50,8 +50,7 @@ const Glow = styled.div`
         inset: -5px;
         border: 10px solid transparent;
         border-radius: 12px;
-        mask:
-            linear-gradient(#0000, #0000),
+        mask: linear-gradient(#0000, #0000),
             conic-gradient(
                 from calc((var(--angle, 0) - (20 * 0.5)) * 1deg),
                 #000 0deg,
@@ -77,8 +76,7 @@ const Container = styled.li`
         pointer-events: none;
         background: hsl(280 10% 50% / 1);
         background-attachment: fixed;
-        mask:
-            linear-gradient(#0000, #0000),
+        mask: linear-gradient(#0000, #0000),
             conic-gradient(
                 from calc(((var(--angle, 0) + (20 * 0.25)) - (20 * 1.5)) * 1deg),
                 hsl(0 0% 100% / 0.15) 0deg,
@@ -110,8 +108,7 @@ const Container = styled.li`
         transition: opacity 1s;
         inset: 0;
         border: 1px solid transparent;
-        mask:
-            linear-gradient(#0000, #0000),
+        mask: linear-gradient(#0000, #0000),
             conic-gradient(
                 from calc(((var(--angle, 0) + (20 * 0.25)) - (20 * 0.5)) * 1deg),
                 #0000 0deg,
@@ -127,7 +124,7 @@ const Container = styled.li`
 export const WorkTile = ({ children, title, description, className = '', link }: Props) => {
     const ref = useRef<HTMLLIElement>(null);
     const rafIdRef = useRef<number>(null);
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
 
     const handleMouseMove = useCallback((event: globalThis.PointerEvent) => {
         if (!ref.current) {
@@ -184,7 +181,7 @@ export const WorkTile = ({ children, title, description, className = '', link }:
         };
     }, [handleMouseMove]);
 
-    if (theme === 'light') {
+    if (resolvedTheme === 'light') {
         return (
             <div
                 className={cn(
