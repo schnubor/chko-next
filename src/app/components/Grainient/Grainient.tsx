@@ -1,10 +1,15 @@
 'use client';
 
+import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
+import { useMedia } from 'react-use';
 
 import './Grainient.css';
+
+// Below this width we skip WebGL entirely and fall back to a static image
+const MOBILE_QUERY = '(max-width: 767px)';
 
 const hexToRgb = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -139,9 +144,11 @@ export const Grainient = ({
     const color2 = isLight ? '#DFDAD1' : '#141516';
     const color3 = isLight ? '#D7BBA0' : '#6E452F';
     const containerRef = useRef<HTMLDivElement>(null);
+    // Default to mobile so the server and the first client render agree
+    const isMobile = useMedia(MOBILE_QUERY, true);
 
     useEffect(() => {
-        if (!containerRef.current) {
+        if (isMobile || !containerRef.current) {
             return;
         }
 
@@ -250,7 +257,19 @@ export const Grainient = ({
         color1,
         color2,
         color3,
+        isMobile,
     ]);
+
+    if (isMobile) {
+        return (
+            <div
+                className={clsx(
+                    className,
+                    "bg-[url('/background-light.png')] bg-cover bg-center dark:bg-[url('/background-dark.png')]",
+                )}
+            />
+        );
+    }
 
     return <div ref={containerRef} className={className} />;
 };

@@ -2,7 +2,6 @@
 
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
 import { useEffect, useRef, useCallback, type ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -28,7 +27,7 @@ const Glow = styled.div`
     filter: blur(calc(10 * 1px));
     display: none;
 
-    @media (prefers-color-scheme: dark) {
+    .dark & {
         display: block;
     }
 
@@ -67,7 +66,7 @@ const Glow = styled.div`
 const Container = styled.li`
     will-change: auto;
 
-    &::before {
+    .dark &::before {
         position: absolute;
         inset: 0;
         border: 1px solid transparent;
@@ -89,7 +88,7 @@ const Container = styled.li`
         transition: opacity 1s;
     }
 
-    &::after {
+    .dark &::after {
         content: '';
         pointer-events: none;
         position: absolute;
@@ -124,7 +123,6 @@ const Container = styled.li`
 export const WorkTile = ({ children, title, description, className = '', link }: Props) => {
     const ref = useRef<HTMLLIElement>(null);
     const rafIdRef = useRef<number>(null);
-    const { resolvedTheme } = useTheme();
 
     const handleMouseMove = useCallback((event: globalThis.PointerEvent) => {
         if (!ref.current) {
@@ -181,36 +179,11 @@ export const WorkTile = ({ children, title, description, className = '', link }:
         };
     }, [handleMouseMove]);
 
-    if (resolvedTheme === 'light') {
-        return (
-            <div
-                className={cn(
-                    'group hover:shadow-tile relative rounded-xl bg-stone-200/40 p-4 transition-all ease-out hover:bg-stone-200/50 dark:bg-neutral-800/40 dark:hover:bg-neutral-800/50',
-                    className,
-                )}
-            >
-                <Link href={link}>
-                    {children}
-                    <div className="mt-6">
-                        <h3 className="font-semibold">{title}</h3>
-                        <span className="text-xs text-stone-600 dark:text-neutral-400">
-                            {description}
-                        </span>
-                    </div>
-
-                    {link && (
-                        <ArrowRightIcon className="absolute top-4 right-4 size-5 origin-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
-                    )}
-                </Link>
-            </div>
-        );
-    }
-
     return (
         <Container
             ref={ref}
             className={cn(
-                'group hover:shadow-tile relative rounded-xl bg-stone-200/40 p-4 transition-all ease-out hover:bg-stone-200/50 dark:bg-neutral-800/40 dark:hover:bg-neutral-800/50',
+                'group relative rounded-xl bg-stone-200/40 p-4 transition-all ease-out hover:bg-stone-200/50 dark:bg-neutral-800/40 dark:hover:bg-neutral-800/50',
                 className,
             )}
         >
