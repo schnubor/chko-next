@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import clsx from 'clsx';
 import { GeistSans } from 'geist/font/sans';
 
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                         <Footer />
                     </main>
                 </Providers>
+                <Analytics />
             </body>
         </html>
     );
