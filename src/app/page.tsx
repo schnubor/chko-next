@@ -1,6 +1,6 @@
-
 import { Avatar } from '@/app/components/Avatar';
 import { Dock } from '@/app/components/Dock';
+import { Projects } from '@/app/components/Projects';
 import { Work } from '@/app/components/Work';
 
 import { Header } from './components/Header';
@@ -48,6 +48,8 @@ export default function Home() {
             </section>
 
             <Work />
+
+            <Projects />
 
             <Dock />
         </>

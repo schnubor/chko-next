@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { ArrowRightIcon, ArrowTopRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { useEffect, useRef, useCallback, type ReactNode } from 'react';
 import styled from 'styled-components';
@@ -13,6 +13,7 @@ interface Props {
     description: string;
     className?: string;
     link: string;
+    external?: boolean;
 }
 
 const CONFIG = {
@@ -120,7 +121,14 @@ const Container = styled.li`
     }
 `;
 
-export const WorkTile = ({ children, title, description, className = '', link }: Props) => {
+export const WorkTile = ({
+    children,
+    title,
+    description,
+    className = '',
+    link,
+    external = false,
+}: Props) => {
     const ref = useRef<HTMLLIElement>(null);
     const rafIdRef = useRef<number>(null);
 
@@ -188,7 +196,7 @@ export const WorkTile = ({ children, title, description, className = '', link }:
             )}
         >
             <Glow />
-            <Link href={link}>
+            <Link href={link} {...(external && { target: '_blank', rel: 'noopener' })}>
                 {children}
                 <div className="mt-6">
                     <h3 className="font-semibold">{title}</h3>
@@ -197,9 +205,12 @@ export const WorkTile = ({ children, title, description, className = '', link }:
                     </span>
                 </div>
 
-                {link && (
-                    <ArrowRightIcon className="absolute top-4 right-4 size-5 origin-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
-                )}
+                {link &&
+                    (external ? (
+                        <ArrowTopRightIcon className="absolute top-4 right-4 size-5 origin-bottom-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
+                    ) : (
+                        <ArrowRightIcon className="absolute top-4 right-4 size-5 origin-left scale-0 text-orange-500 transition duration-200 ease-out group-hover:scale-100" />
+                    ))}
             </Link>
         </Container>
     );
